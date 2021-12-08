@@ -15,7 +15,7 @@ public class Agente {
 	// Conexion con la base de datos
 	protected static Connection mBD;
 	// Identificador ODBC de la base de datos
-	private static String url = "jdbc:mysql://localhost:3306/NOMBREESQUEMABASEDATOS";  //poner puerto correcto, por defecto 3306 y el nombre del esquema de la base de datos MySQL
+	private static String url = "jdbc:mysql://localhost:3306/pruebabd";  //poner puerto correcto, por defecto 3306 y el nombre del esquema de la base de datos MySQL
 	
 	// Driver para conectar con bases de datos MySQL
 	private static String driver = "com.mysql.cj.jdbc.Driver";
@@ -27,7 +27,7 @@ public class Agente {
 	}
 
 	// Implementacion del patron singleton
-	// Este patron de dise�o permite implementar clases de las cuales
+	// Este patron de diseño permite implementar clases de las cuales
 	// solo existir una instancia
 	// http://es.wikipedia.org/wiki/Singleton
 	public static Agente getAgente() throws Exception {
@@ -40,7 +40,7 @@ public class Agente {
 	// Metodo para realizar la conexion a la base de datos
 	private void conectar() throws Exception {
 		Class.forName(driver);
-		mBD = DriverManager.getConnection(url, "usuario","contrase�a"); //poner usuario y contrase�a 
+		mBD = DriverManager.getConnection(url, "root","IngSof21@"); //poner usuario y contraseña 
 	}
 
 	// Metodo para desconectar de la base de datos
