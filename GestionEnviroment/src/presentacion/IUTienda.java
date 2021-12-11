@@ -98,7 +98,7 @@ import persistencia.Agente;
 			buttonAceptar.setBounds(264, 69, 148, 29);
 			contentPane.add(buttonAceptar);
 
-			JLabel lblEstado = new JLabel("Estado");
+			JLabel lblEstado = new JLabel("Estado:");
 			lblEstado.setForeground(new Color(0,200,0));
 			lblEstado.setBounds(6, 255, 61, 16);
 			contentPane.add(lblEstado);
@@ -106,6 +106,9 @@ import persistencia.Agente;
 			textPaneEstado = new JTextPane();
 			textPaneEstado.setToolTipText(
 					"Panel para mostrar el restultado de la comprobación de login o las excepciones lanzadas");
+			textPaneEstado.setBackground(new Color(0,0,0,0));
+			textPaneEstado.setForeground(Color.WHITE);
+			textPaneEstado.setOpaque(false);
 			textPaneEstado.setEditable(false);
 			textPaneEstado.setBounds(8, 280, 406, 50);
 			contentPane.add(textPaneEstado);

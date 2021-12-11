@@ -24,7 +24,7 @@ public class IUNuevoUsuario extends JFrame {
 	private JTextField textFieldLogin;
 	private JTextField textFieldPassword;
 	private JTextField textFieldTarjeta;
-	private JTextPane textPane;
+	private JTextPane textPaneEstado;
 
 	public IUNuevoUsuario() {
 		setTitle("Registro de nuevo usuario");
@@ -84,14 +84,14 @@ public class IUNuevoUsuario extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
 					if (GestorUsuario.nuevoCliente(textFieldLogin.getText(), textFieldPassword.getText(), textFieldTarjeta.getText()) == true) {
-						textPane.setText("Usuario creado correctamente");
+						textPaneEstado.setText("Usuario creado correctamente");
 					}
 					else {
-						textPane.setText("No se ha podido insertar el usuario");
+						textPaneEstado.setText("No se ha podido insertar el usuario");
 					}
 
 				} catch (Exception e) {
-					textPane.setText("No se ha podido crear  el usuario.¿Tal vez ya existe?");
+					textPaneEstado.setText("No se ha podido crear  el usuario.¿Tal vez ya existe?");
 				}
 
 			}
@@ -104,12 +104,15 @@ public class IUNuevoUsuario extends JFrame {
 		label_1.setBounds(6, 255, 61, 16);
 		contentPane.add(label_1);
 
-		textPane = new JTextPane();
-		textPane.setToolTipText(
-				"Panel para mostrar el restultado de la comprobaci\u00F3n de login o las excepciones lanzadas");
-		textPane.setEditable(false);
-		textPane.setBounds(8, 280, 406, 50);
-		contentPane.add(textPane);
+		textPaneEstado = new JTextPane();
+		textPaneEstado.setToolTipText(
+				"Panel para mostrar el restultado de la comprobación de login o las excepciones lanzadas");
+		textPaneEstado.setBackground(new Color(0,0,0,0));
+		textPaneEstado.setForeground(Color.WHITE);
+		textPaneEstado.setOpaque(false);
+		textPaneEstado.setEditable(false);
+		textPaneEstado.setBounds(8, 280, 406, 50);
+		contentPane.add(textPaneEstado);
 		
 		JLabel lblFondo = new JLabel("");
 		lblFondo.setBounds(0, 0, 450, 385);

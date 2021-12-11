@@ -23,7 +23,7 @@ public class IUEliminarUsuario extends JFrame {
 	private JPanel contentPane;
 	private JTextField textFieldLogin;
 	private JTextField textFieldPassword;
-	private JTextPane textPane;
+	private JTextPane textPaneEstado;
 
 	public IUEliminarUsuario() {
 		setTitle("Eliminar usuario registrado");
@@ -70,7 +70,7 @@ public class IUEliminarUsuario extends JFrame {
 		JButton btnAltaUsuario = new JButton("Eliminar Cuenta");
 		btnAltaUsuario.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent arg0) {
-					IUPreguntaSeguridad iuPregunta = new IUPreguntaSeguridad(textPane, textFieldLogin, textFieldPassword);
+					IUPreguntaSeguridad iuPregunta = new IUPreguntaSeguridad(textPaneEstado, textFieldLogin, textFieldPassword);
 					iuPregunta.setVisible(true);
 			}
 		});
@@ -82,12 +82,15 @@ public class IUEliminarUsuario extends JFrame {
 		label_1.setBounds(6, 255, 61, 16);
 		contentPane.add(label_1);
 
-		textPane = new JTextPane();
-		textPane.setToolTipText(
-				"Panel para mostrar el restultado de la comprobaci\u00F3n de login o las excepciones lanzadas");
-		textPane.setEditable(false);
-		textPane.setBounds(8, 280, 406, 50);
-		contentPane.add(textPane);
+		textPaneEstado = new JTextPane();
+		textPaneEstado.setToolTipText(
+				"Panel para mostrar el restultado de la comprobación de login o las excepciones lanzadas");
+		textPaneEstado.setBackground(new Color(0,0,0,0));
+		textPaneEstado.setForeground(Color.WHITE);
+		textPaneEstado.setOpaque(false);
+		textPaneEstado.setEditable(false);
+		textPaneEstado.setBounds(8, 280, 406, 50);
+		contentPane.add(textPaneEstado);
 		
 		JLabel lblFondo = new JLabel("");
 		lblFondo.setBounds(0, 0, 450, 385);
