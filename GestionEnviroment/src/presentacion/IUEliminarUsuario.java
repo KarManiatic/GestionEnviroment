@@ -54,19 +54,8 @@ public class IUEliminarUsuario extends JFrame {
 		JButton btnAltaUsuario = new JButton("Eliminar Cuenta");
 		btnAltaUsuario.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent arg0) {
-				try {
-					if (GestorUsuario.borrarCliente(textFieldLogin.getText(), textFieldPassword.getText()) == true)
-						textPane.setText("Usuario eliminado correctamente");
-
-					else
-						textPane.setText("Usuario introducido no existe");
-
-				} catch (Exception e) {
-					textPane.setText("Error, no se ha podido borrar  el usuario. Tal vez no exista");
-
-				}
-
-
+					IUPreguntaSeguridad iuPregunta = new IUPreguntaSeguridad(textPane, textFieldLogin, textFieldPassword);
+					iuPregunta.setVisible(true);
 			}
 		});
 		btnAltaUsuario.setBounds(253, 55, 141, 29);
@@ -84,4 +73,5 @@ public class IUEliminarUsuario extends JFrame {
 		textPane.setBounds(6, 154, 407, 102);
 		contentPane.add(textPane);
 	}
+	
 }
