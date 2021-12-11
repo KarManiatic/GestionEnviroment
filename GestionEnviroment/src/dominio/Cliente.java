@@ -17,11 +17,12 @@ public class Cliente extends Usuario {
 		return null;
 	}
 
-	public static int insert() throws Exception {
+	public static int insert(String login, String password, String dni, String nombre, String apellido, Long numTarjeta) throws Exception {
 		return 0;
 	}
 
-	public static int delete() throws Exception {
+	public static int delete(String login, String password, String dni) throws Exception {
+		//aqui debera borrar el cliente conectando a la base de datoos
 		return 0;
 	}
 }

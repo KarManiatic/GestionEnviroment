@@ -11,16 +11,14 @@ public class GestorUsuario {
 	
 	public static boolean nuevoCliente(String login, String password, String dni, String nombre, String apellido, Long numTarjeta) throws Exception{
 		boolean insertado = false;
-		Cliente u = new Cliente(login, password, dni, nombre, apellido, numTarjeta);
-		if(u.insert() ==1)
+		if(Cliente.insert(login, password, dni, nombre, apellido, numTarjeta) ==1)
 			insertado = true;
 		return insertado;		
 	}
 	
-	public static boolean borrarCliente(String login, String password, String dni, String nombre, String apellido, Long numTarjeta) throws Exception{
+	public static boolean borrarCliente(String login, String password, String dni) throws Exception{
 		boolean eliminado = false;
-		Cliente u = new Cliente(login, password, dni, nombre, apellido, numTarjeta);
-		if(u.delete()==1) eliminado = true;
+		if(Cliente.delete(login, password, dni)==1) eliminado = true; //porque el metodo en cliente es estatico
 		return eliminado;
 	}
 	

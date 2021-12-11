@@ -19,13 +19,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class IUNuevoUsuario extends JFrame {
-
+	
 	private JPanel contentPane;
 	private JTextField textFieldLogin;
 	private JTextField textFieldPassword;
-	private JTextField textFieldTarjeta;
 	private JTextPane textPaneEstado;
-
+	
 	public IUNuevoUsuario() {
 		setTitle("Registro de nuevo usuario");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -37,17 +36,11 @@ public class IUNuevoUsuario extends JFrame {
 		setResizable(false);
 		ImageIcon img = new ImageIcon("tienda.png");
 		setIconImage(img.getImage());
-		
-		JLabel lbl1 = new JLabel("Introduzca el nombre de usuario, la contraseña");
+
+		JLabel lbl1 = new JLabel("Introduzca el nombre de usuario y la contraseña");
 		lbl1.setForeground(Color.ORANGE);
-		lbl1.setBounds(80, 10, 386, 43);
+		lbl1.setBounds(75, 10, 386, 43);
 		contentPane.add(lbl1);
-		
-		JLabel lbl2 = new JLabel("y el número de la tarjeta de crédito");
-		lbl2.setForeground(Color.ORANGE);
-		lbl2.setBounds(115, 30, 386, 43);
-		contentPane.add(lbl2);
-		
 
 		JLabel lblPass = new JLabel("Password:");
 		lblPass.setBounds(30, 135, 70, 16);
@@ -58,11 +51,6 @@ public class IUNuevoUsuario extends JFrame {
 		lblLogin.setBounds(40, 85, 70, 16);
 		lblLogin.setForeground(Color.ORANGE);
 		contentPane.add(lblLogin);
-		
-		JLabel lblTarjeta = new JLabel("Tarjeta de Crédito:");
-		lblTarjeta.setBounds(6, 185, 120, 16);
-		lblTarjeta.setForeground(Color.ORANGE);
-		contentPane.add(lblTarjeta);
 
 		textFieldLogin = new JTextField();
 		textFieldLogin.setBounds(130, 85, 134, 28);
@@ -73,51 +61,36 @@ public class IUNuevoUsuario extends JFrame {
 		textFieldPassword.setColumns(10);
 		textFieldPassword.setBounds(130, 135, 134, 28);
 		contentPane.add(textFieldPassword);
-		
-		textFieldTarjeta = new JTextField();
-		textFieldTarjeta.setColumns(10);
-		textFieldTarjeta.setBounds(130, 185, 134, 28);
-		contentPane.add(textFieldTarjeta);
 
-		JButton btnAltaUsuario = new JButton("Aceptar");
+		JButton btnAltaUsuario = new JButton("Continuar");
 		btnAltaUsuario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				try {
-					if (GestorUsuario.nuevoCliente(textFieldLogin.getText(), textFieldPassword.getText(), Long.parseLong(textFieldTarjeta.getText())) == true) {
-						textPaneEstado.setText("Usuario creado correctamente");
-					}
-					else {
-						textPaneEstado.setText("No se ha podido insertar el usuario");
-					}
-
-				} catch (Exception e) {
-					textPaneEstado.setText("No se ha podido crear  el usuario.¿Tal vez ya existe?");
-				}
-
+				IURellenarDatosUsuario x = new IURellenarDatosUsuario(textFieldPassword, textFieldLogin, textPaneEstado);
+				x.setVisible(true);
 			}
 		});
 		btnAltaUsuario.setBounds(300, 85, 117, 29);
 		contentPane.add(btnAltaUsuario);
 
-		JLabel label_1 = new JLabel("Estado:");
-		label_1.setForeground(new Color(0,200,0));
+		JLabel label_1 = new JLabel("Estado");
+		label_1.setForeground(new Color(0, 200, 0));
 		label_1.setBounds(6, 255, 61, 16);
 		contentPane.add(label_1);
 
 		textPaneEstado = new JTextPane();
 		textPaneEstado.setToolTipText(
 				"Panel para mostrar el restultado de la comprobación de login o las excepciones lanzadas");
-		textPaneEstado.setBackground(new Color(0,0,0,0));
+		textPaneEstado.setBackground(new Color(0, 0, 0, 0));
 		textPaneEstado.setForeground(Color.WHITE);
 		textPaneEstado.setOpaque(false);
 		textPaneEstado.setEditable(false);
 		textPaneEstado.setBounds(8, 280, 406, 50);
 		contentPane.add(textPaneEstado);
-		
+
 		JLabel lblFondo = new JLabel("");
 		lblFondo.setBounds(0, 0, 450, 385);
 		lblFondo.setIcon(new ImageIcon("fondo.jpg"));
 		contentPane.add(lblFondo);
 	}
-}
 
+}

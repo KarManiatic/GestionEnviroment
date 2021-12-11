@@ -23,6 +23,7 @@ public class IUEliminarUsuario extends JFrame {
 	private JPanel contentPane;
 	private JTextField textFieldLogin;
 	private JTextField textFieldPassword;
+	private JTextField textFieldDni;
 	private JTextPane textPaneEstado;
 
 	public IUEliminarUsuario() {
@@ -37,40 +38,45 @@ public class IUEliminarUsuario extends JFrame {
 		ImageIcon img = new ImageIcon("tienda.png");
 		setIconImage(img.getImage());
 		
-		JLabel lbl1 = new JLabel("Introduzca el nombre de usuario y la contraseña");
+		JLabel lbl1 = new JLabel("Introduzca los siguientes datos de la cuenta que desees eliminar");
 		lbl1.setForeground(Color.ORANGE);
-		lbl1.setBounds(80, 10, 386, 43);
+		lbl1.setBounds(20, 10, 386, 43);
 		contentPane.add(lbl1);
-		
-		JLabel lbl2 = new JLabel("de la cuenta que desees eliminar");
-		lbl2.setForeground(Color.ORANGE);
-		lbl2.setBounds(125, 30, 386, 43);
-		contentPane.add(lbl2);
 
 		JLabel lblPass = new JLabel("Password:");
-		lblPass.setBounds(6, 135, 69, 16);
+		lblPass.setBounds(6, 155, 69, 16);
 		lblPass.setForeground(Color.ORANGE);
 		contentPane.add(lblPass);
+		
+		JLabel lblDni = new JLabel("Dni:");
+		lblDni.setBounds(20, 55, 70, 16);
+		lblDni.setForeground(Color.ORANGE);
+		contentPane.add(lblDni);
 
 		JLabel lblLogin = new JLabel("Login:");
 		lblLogin.setForeground(Color.ORANGE);
-		lblLogin.setBounds(6, 85, 69, 16);
+		lblLogin.setBounds(15, 105, 69, 16);
 		contentPane.add(lblLogin);
 
 		textFieldLogin = new JTextField();
-		textFieldLogin.setBounds(87, 85, 134, 28);
+		textFieldLogin.setBounds(87, 105, 134, 28);
 		contentPane.add(textFieldLogin);
 		textFieldLogin.setColumns(10);
 
 		textFieldPassword = new JTextField();
 		textFieldPassword.setColumns(10);
-		textFieldPassword.setBounds(87, 135, 134, 28);
+		textFieldPassword.setBounds(87, 155, 134, 28);
 		contentPane.add(textFieldPassword);
+		
+		textFieldDni = new JTextField();
+		textFieldDni.setBounds(87, 55, 134, 28);
+		contentPane.add(textFieldDni);
+		textFieldDni.setColumns(10);
 
 		JButton btnAltaUsuario = new JButton("Eliminar Cuenta");
 		btnAltaUsuario.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent arg0) {
-					IUPreguntaSeguridad iuPregunta = new IUPreguntaSeguridad(textPaneEstado, textFieldLogin, textFieldPassword);
+					IUPreguntaSeguridad iuPregunta = new IUPreguntaSeguridad(textPaneEstado, textFieldLogin, textFieldPassword, textFieldDni);
 					iuPregunta.setVisible(true);
 			}
 		});
