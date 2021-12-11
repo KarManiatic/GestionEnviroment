@@ -2,8 +2,10 @@ package presentacion;
 
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -47,8 +49,12 @@ import persistencia.Agente;
 			contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 			setContentPane(contentPane);
 			contentPane.setLayout(null);
+			setResizable(false);
+			ImageIcon img = new ImageIcon("tienda.jpg");
+			setIconImage(img.getImage());
 
 			JLabel lblIntroduzcaElLogin = new JLabel("Introduzca el login y el password para acceder al sistema");
+			lblIntroduzcaElLogin.setForeground(Color.ORANGE);
 			lblIntroduzcaElLogin.setBounds(6, 19, 386, 43);
 			contentPane.add(lblIntroduzcaElLogin);
 
@@ -57,13 +63,15 @@ import persistencia.Agente;
 			contentPane.add(textFieldLog);
 			textFieldLog.setColumns(10);
 
-			JLabel lblLogin = new JLabel("Password:");
-			lblLogin.setBounds(6, 122, 73, 16);
-			contentPane.add(lblLogin);
+			JLabel lblPass = new JLabel("Password:");
+			lblPass.setForeground(Color.ORANGE);
+			lblPass.setBounds(6, 122, 73, 16);
+			contentPane.add(lblPass);
 
-			JLabel label = new JLabel("Login:");
-			label.setBounds(6, 74, 61, 16);
-			contentPane.add(label);
+			JLabel lblLogin = new JLabel("Login:");
+			lblLogin.setForeground(Color.ORANGE);
+			lblLogin.setBounds(6, 74, 61, 16);
+			contentPane.add(lblLogin);
 
 			textFieldPass = new JTextField();
 			textFieldPass.setColumns(10);
@@ -91,15 +99,15 @@ import persistencia.Agente;
 			contentPane.add(buttonAceptar);
 
 			JLabel lblEstado = new JLabel("Estado");
-			lblEstado.setForeground(Color.RED);
-			lblEstado.setBounds(6, 208, 61, 16);
+			lblEstado.setForeground(new Color(0,200,0));
+			lblEstado.setBounds(6, 255, 61, 16);
 			contentPane.add(lblEstado);
 
 			textPaneEstado = new JTextPane();
 			textPaneEstado.setToolTipText(
 					"Panel para mostrar el restultado de la comprobación de login o las excepciones lanzadas");
 			textPaneEstado.setEditable(false);
-			textPaneEstado.setBounds(6, 235, 406, 102);
+			textPaneEstado.setBounds(8, 280, 406, 50);
 			contentPane.add(textPaneEstado);
 
 			JButton buttonLimpiar = new JButton("Limpiar");
@@ -133,6 +141,11 @@ import persistencia.Agente;
 			});
 			btnEliminarUsuario.setBounds(264, 197, 148, 28);
 			contentPane.add(btnEliminarUsuario);
+			
+			JLabel lblFondo = new JLabel("");
+			lblFondo.setBounds(0, 0, 450, 385);
+			lblFondo.setIcon(new ImageIcon("fondo.jpg"));
+			contentPane.add(lblFondo);
 
 			/*
 			 * JScrollPane scrollPaneSalida = new JScrollPane(); scrollPaneSalida.

@@ -21,6 +21,9 @@ public class IUPreguntaSeguridad extends JFrame{
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setResizable(false);
+		ImageIcon img = new ImageIcon("tienda.jpg");
+		setIconImage(img.getImage());
 		
 		JLabel lblP1 = new JLabel("¿Seguro que desea eliminar la cuenta?");
 		lblP1.setBounds(90, 35, 250, 16);
@@ -48,7 +51,7 @@ public class IUPreguntaSeguridad extends JFrame{
 				
 			}
 		});
-		btnSi.setBounds(40, 157, 148, 29);
+		btnSi.setBounds(40, 167, 148, 29);
 		contentPane.add(btnSi);
 		
 		JButton btnNo = new JButton("No");
@@ -58,7 +61,13 @@ public class IUPreguntaSeguridad extends JFrame{
 				dispose();
 			}
 		});
-		btnNo.setBounds(220, 157, 148, 29);
+		btnNo.setBounds(220, 167, 148, 29);
 		contentPane.add(btnNo);
+		
+		JLabel lblExclamacion = new JLabel("");
+		lblExclamacion.setBounds(163, 85, 100, 73);
+		lblExclamacion.setIcon(new ImageIcon("exclamacion.png"));
+		contentPane.add(lblExclamacion);
+		
 	}
 }
