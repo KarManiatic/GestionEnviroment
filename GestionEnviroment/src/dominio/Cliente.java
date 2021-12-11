@@ -1,5 +1,7 @@
 package dominio;
 
+import persistencia.Agente;
+
 public class Cliente extends Usuario {
 
 	private double saldo;
@@ -9,10 +11,12 @@ public class Cliente extends Usuario {
 		super(mLogin, mPassword, dni, nombre, apellido);
 		this.numTarjeta = numTarjeta;
 		this.saldo = 0;
+		Agente.crearBaseDatosSiNoExiste();
 	}
 
 	//No estoy seguro si esto es así
 
+	//Cuando se crea un usuario, hay que crear una tabla personal para guardar sus productos
 	public static Cliente read(String login, String password) throws Exception {
 		return null;
 	}
@@ -24,4 +28,5 @@ public class Cliente extends Usuario {
 	public static int delete() throws Exception {
 		return 0;
 	}
+	
 }

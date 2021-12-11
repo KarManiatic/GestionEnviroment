@@ -108,7 +108,12 @@ public class Agente {
 
 	}
 	
-	public void crearBaseDatosSiNoExiste() {
-		
+	public void crearBaseDatosSiNoExiste(String SQL) throws Exception {
+		conectar();
+		PreparedStatement stmt = mBD.prepareStatement(SQL);
+		stmt.executeUpdate();
+		stmt.close();
+		desconectar();
+				
 	}
 }
