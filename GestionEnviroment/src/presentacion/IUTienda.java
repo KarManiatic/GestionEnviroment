@@ -52,14 +52,20 @@ import persistencia.Agente;
 			setResizable(false);
 			ImageIcon img = new ImageIcon("tienda.png");
 			setIconImage(img.getImage());
-
+			
+/*
+			ImageIcon botonRosa = new ImageIcon("botonRosa.png");
+			Image botonRosa1 = botonRosa.getImage() ;  
+			Image botonRosaRedi = botonRosa1.getScaledInstance(153, 29, Image.SCALE_SMOOTH ) ;  
+			botonRosa = new ImageIcon(botonRosaRedi);
+*/
 			JLabel lblIntroduzcaElLogin = new JLabel("Introduzca el login y el password para acceder al sistema");
 			lblIntroduzcaElLogin.setForeground(Color.ORANGE);
 			lblIntroduzcaElLogin.setBounds(6, 19, 386, 43);
 			contentPane.add(lblIntroduzcaElLogin);
 
 			textFieldLog = new JTextField();
-			textFieldLog.setBounds(86, 68, 134, 28);
+			textFieldLog.setBounds(86, 77, 134, 28);
 			contentPane.add(textFieldLog);
 			textFieldLog.setColumns(10);
 
@@ -70,7 +76,7 @@ import persistencia.Agente;
 
 			JLabel lblLogin = new JLabel("Login:");
 			lblLogin.setForeground(Color.ORANGE);
-			lblLogin.setBounds(6, 74, 61, 16);
+			lblLogin.setBounds(6, 77, 61, 16);
 			contentPane.add(lblLogin);
 
 			textFieldPass = new JTextField();
@@ -85,7 +91,7 @@ import persistencia.Agente;
 					try {
 						if (GestorUsuario.autenticar(textFieldLog.getText(), textFieldPass.getText()) == false) {
 							textPaneEstado.setText("El login ha  sido correcto");
-							IUOpciones mostrarOpciones = new IUOpciones();
+							IUOpcionesUsuario mostrarOpciones = new IUOpcionesUsuario();
 							mostrarOpciones.setVisible(true);
 						} 
 						else {
@@ -97,8 +103,16 @@ import persistencia.Agente;
 
 				}
 			});
-			buttonAceptar.setBounds(264, 69, 148, 29);
+			buttonAceptar.setBounds(290, 77, 153, 29);
+			buttonAceptar.setBorderPainted(false);
+			buttonAceptar.setBackground(new Color(0,0,0,0));
+			buttonAceptar.setOpaque(false);
 			contentPane.add(buttonAceptar);
+			
+			JLabel verde = new JLabel();
+			verde.setIcon(new ImageIcon("botonVerde.png"));
+			verde.setBounds(300, 77, 160, 29);
+			contentPane.add(verde);
 
 			JLabel lblEstado = new JLabel("Estado:");
 			lblEstado.setForeground(new Color(0,200,0));
@@ -124,8 +138,16 @@ import persistencia.Agente;
 					 */
 				}
 			});
-			buttonLimpiar.setBounds(264, 117, 148, 29);
+			buttonLimpiar.setBounds(290, 117, 148, 29);
+			buttonLimpiar.setBorderPainted(false);
+			buttonLimpiar.setBackground(new Color(0,0,0,0));
+			buttonLimpiar.setOpaque(false);
 			contentPane.add(buttonLimpiar);
+			
+			JLabel azul = new JLabel();
+			azul.setIcon(new ImageIcon("botonAzul.png"));
+			azul.setBounds(300, 117, 160, 29);
+			contentPane.add(azul);
 
 			JButton btnNuevoUsuario = new JButton("Registrarse");
 			btnNuevoUsuario.addActionListener(new ActionListener() {
@@ -134,8 +156,16 @@ import persistencia.Agente;
 					frame.setVisible(true);
 				}
 			});
-			btnNuevoUsuario.setBounds(264, 157, 148, 29);
+			btnNuevoUsuario.setBounds(290, 157, 148, 29);
+			btnNuevoUsuario.setBorderPainted(false);
+			btnNuevoUsuario.setBackground(new Color(0,0,0,0));
+			btnNuevoUsuario.setOpaque(false);
 			contentPane.add(btnNuevoUsuario);
+			
+			JLabel morado = new JLabel();
+			morado.setIcon(new ImageIcon("botonMorado.png"));
+			morado.setBounds(300, 157, 160, 29);
+			contentPane.add(morado);
 
 			JButton btnEliminarUsuario = new JButton("Eliminar Cuenta");
 			btnEliminarUsuario.addActionListener(new ActionListener() {
@@ -144,8 +174,16 @@ import persistencia.Agente;
 					frame.setVisible(true);
 				}
 			});
-			btnEliminarUsuario.setBounds(264, 197, 148, 28);
+			btnEliminarUsuario.setBounds(290, 197, 148, 28);
+			btnEliminarUsuario.setBorderPainted(false);
+			btnEliminarUsuario.setBackground(new Color(0,0,0,0));
+			btnEliminarUsuario.setOpaque(false);
 			contentPane.add(btnEliminarUsuario);
+			
+			JLabel rojo = new JLabel();
+			rojo.setIcon(new ImageIcon("botonRojo.png"));
+			rojo.setBounds(300, 197, 160, 29);
+			contentPane.add(rojo);
 			
 			JLabel lblFondo = new JLabel("");
 			lblFondo.setBounds(0, 0, 450, 385);

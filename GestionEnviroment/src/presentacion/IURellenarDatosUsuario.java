@@ -107,7 +107,15 @@ public class IURellenarDatosUsuario extends JFrame {
 			}
 		});
 		btnAltaUsuario.setBounds(300, 55, 117, 29);
+		btnAltaUsuario.setBorderPainted(false);
+		btnAltaUsuario.setBackground(new Color(0,0,0,0));
+		btnAltaUsuario.setOpaque(false);
 		contentPane.add(btnAltaUsuario);
+		
+		JLabel morado = new JLabel();
+		morado.setIcon(new ImageIcon("botonMorado.png"));
+		morado.setBounds(300, 55, 160, 29);
+		contentPane.add(morado);
 		
 		JLabel lblFondo = new JLabel("");
 		lblFondo.setBounds(0, 0, 450, 385);

@@ -70,7 +70,15 @@ public class IUNuevoUsuario extends JFrame {
 			}
 		});
 		btnAltaUsuario.setBounds(300, 85, 117, 29);
+		btnAltaUsuario.setBorderPainted(false);
+		btnAltaUsuario.setBackground(new Color(0,0,0,0));
+		btnAltaUsuario.setOpaque(false);
 		contentPane.add(btnAltaUsuario);
+		
+		JLabel morado = new JLabel();
+		morado.setIcon(new ImageIcon("botonMorado.png"));
+		morado.setBounds(300, 85, 160, 29);
+		contentPane.add(morado);
 
 		JLabel label_1 = new JLabel("Estado");
 		label_1.setForeground(new Color(0, 200, 0));

@@ -73,15 +73,23 @@ public class IUEliminarUsuario extends JFrame {
 		contentPane.add(textFieldDni);
 		textFieldDni.setColumns(10);
 
-		JButton btnAltaUsuario = new JButton("Eliminar Cuenta");
-		btnAltaUsuario.addActionListener(new ActionListener() {
+		JButton btnEliminarUsuario = new JButton("Eliminar Cuenta");
+		btnEliminarUsuario.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent arg0) {
 					IUPreguntaSeguridad iuPregunta = new IUPreguntaSeguridad(textPaneEstado, textFieldLogin, textFieldPassword, textFieldDni);
 					iuPregunta.setVisible(true);
 			}
 		});
-		btnAltaUsuario.setBounds(253, 55, 141, 29);
-		contentPane.add(btnAltaUsuario);
+		btnEliminarUsuario.setBounds(290, 55, 141, 29);
+		btnEliminarUsuario.setBorderPainted(false);
+		btnEliminarUsuario.setBackground(new Color(0,0,0,0));
+		btnEliminarUsuario.setOpaque(false);
+		contentPane.add(btnEliminarUsuario);
+		
+		JLabel rojo = new JLabel();
+		rojo.setIcon(new ImageIcon("botonRojo.png"));
+		rojo.setBounds(300, 55, 160, 29);
+		contentPane.add(rojo);
 
 		JLabel label_1 = new JLabel("Estado:");
 		label_1.setForeground(new Color(0,200,0));
