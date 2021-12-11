@@ -12,7 +12,7 @@ public class GestorUsuario {
 		return autenticado;
 	}
 	
-	public static boolean nuevoCliente(String login, String password, String numTarjeta) throws Exception{
+	public static boolean nuevoCliente(String login, String password, Long numTarjeta) throws Exception{
 		boolean insertado = false;
 		Cliente u = new Cliente(login, password, numTarjeta);
 		if(u.insert() ==1)

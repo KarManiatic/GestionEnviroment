@@ -83,7 +83,7 @@ public class IUNuevoUsuario extends JFrame {
 		btnAltaUsuario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					if (GestorUsuario.nuevoCliente(textFieldLogin.getText(), textFieldPassword.getText(), textFieldTarjeta.getText()) == true) {
+					if (GestorUsuario.nuevoCliente(textFieldLogin.getText(), textFieldPassword.getText(), Long.parseLong(textFieldTarjeta.getText())) == true) {
 						textPaneEstado.setText("Usuario creado correctamente");
 					}
 					else {

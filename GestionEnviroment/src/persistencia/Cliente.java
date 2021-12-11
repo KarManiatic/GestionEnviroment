@@ -3,9 +3,9 @@ package persistencia;
 public class Cliente extends Usuario {
 
 	private double saldo;
-	private String numTarjeta;
+	private Long numTarjeta;
 	
-	public Cliente(String login, String password, String numTarjeta) {
+	public Cliente(String login, String password, Long numTarjeta) {
 		super(login, password);
 		this.numTarjeta = numTarjeta;
 		this.saldo = 0;

@@ -87,6 +87,7 @@ import persistencia.Agente;
 							textPaneEstado.setText("El login ha  sido correcto");
 							IUOpciones mostrarOpciones = new IUOpciones();
 							mostrarOpciones.setVisible(true);
+							
 						} 
 						else {
 							textPaneEstado.setText("El login ha sido incorrecto");
