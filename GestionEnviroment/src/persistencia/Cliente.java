@@ -10,6 +10,10 @@ public class Cliente extends Usuario {
 		this.numTarjeta = numTarjeta;
 		this.saldo = 0;
 	}
+	
+	public Cliente(String login, String password) {
+		super(login, password);
+	}
 
 	public static Cliente read(String login, String password) throws Exception {
 		return null;

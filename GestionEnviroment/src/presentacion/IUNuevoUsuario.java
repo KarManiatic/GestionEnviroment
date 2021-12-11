@@ -26,7 +26,7 @@ public class IUNuevoUsuario extends JFrame {
 	private JTextPane textPane;
 
 	public IUNuevoUsuario() {
-		setTitle("Dar de alta a un nuevo usuario");
+		setTitle("Registro de nuevo usuario");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 440, 400);
 		contentPane = new JPanel();
@@ -42,7 +42,7 @@ public class IUNuevoUsuario extends JFrame {
 		label.setBounds(40, 10, 70, 16);
 		contentPane.add(label);
 		
-		JLabel labelTarjeta = new JLabel("Número de Tarjeta:");
+		JLabel labelTarjeta = new JLabel("Tarjeta de Crédito:");
 		labelTarjeta.setBounds(6, 110, 120, 16);
 		contentPane.add(labelTarjeta);
 
@@ -61,7 +61,7 @@ public class IUNuevoUsuario extends JFrame {
 		textFieldTarjeta.setBounds(130, 105, 134, 28);
 		contentPane.add(textFieldTarjeta);
 
-		JButton btnAltaUsuario = new JButton("Alta usuario");
+		JButton btnAltaUsuario = new JButton("Aceptar");
 		btnAltaUsuario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {

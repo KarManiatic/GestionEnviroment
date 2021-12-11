@@ -114,7 +114,7 @@ import persistencia.Agente;
 			buttonLimpiar.setBounds(264, 117, 148, 29);
 			contentPane.add(buttonLimpiar);
 
-			JButton btnNuevoUsuario = new JButton("Nuevo Usuario");
+			JButton btnNuevoUsuario = new JButton("Registrarse");
 			btnNuevoUsuario.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					IUNuevoUsuario frame = new IUNuevoUsuario();
@@ -124,7 +124,7 @@ import persistencia.Agente;
 			btnNuevoUsuario.setBounds(264, 157, 148, 29);
 			contentPane.add(btnNuevoUsuario);
 
-			JButton btnEliminarUsuario = new JButton("Eliminar Usuario");
+			JButton btnEliminarUsuario = new JButton("Eliminar Cuenta");
 			btnEliminarUsuario.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					IUEliminarUsuario frame = new IUEliminarUsuario();
