@@ -17,9 +17,9 @@ public class GestorUsuario {
 		return insertado;		
 	}
 	
-	public static boolean borrarCliente(String login, String password, String numTarjeta) throws Exception{
+	public static boolean borrarCliente(String login, String password) throws Exception{
 		boolean eliminado = false;
-		Cliente u = new Cliente(login,password, numTarjeta);
+		Cliente u = new Cliente(login,password);
 		if(u.delete()==1) eliminado = true;
 		return eliminado;
 	}

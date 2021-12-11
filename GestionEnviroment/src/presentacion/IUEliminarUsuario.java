@@ -51,7 +51,7 @@ public class IUEliminarUsuario extends JFrame {
 		textFieldPassword.setBounds(87, 75, 134, 28);
 		contentPane.add(textFieldPassword);
 
-		JButton btnAltaUsuario = new JButton("Eliminar usuario");
+		JButton btnAltaUsuario = new JButton("Eliminar Cuenta");
 		btnAltaUsuario.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent arg0) {
 				try {
@@ -69,7 +69,7 @@ public class IUEliminarUsuario extends JFrame {
 
 			}
 		});
-		btnAltaUsuario.setBounds(253, 76, 141, 29);
+		btnAltaUsuario.setBounds(253, 55, 141, 29);
 		contentPane.add(btnAltaUsuario);
 
 		JLabel label_1 = new JLabel("Estado");

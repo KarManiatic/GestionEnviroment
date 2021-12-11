@@ -56,7 +56,7 @@ public class Agente {
 		stmt.close();
 		desconectar();
 		return res;
-	}
+	} 
 
 	// Metodo para realizar una eliminacion en la base de datos
 	public int delete(String SQL) throws SQLException, Exception {
