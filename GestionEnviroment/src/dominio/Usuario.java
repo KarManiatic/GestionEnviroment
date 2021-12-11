@@ -10,7 +10,6 @@ public abstract class Usuario {
 	private String nombre;
 	private String apellido;
 	
-	//Constructor para la creaci—n de un objeto Usuario vacio
 	public Usuario(){
 		this.mLogin = null;
 		this.mPassword = null;
@@ -18,8 +17,6 @@ public abstract class Usuario {
 		this.nombre = null;
 		this.apellido = null;
 	}
-		
-	//Constructor para la creaci—n de un Usuario
 
 	public Usuario(String mLogin, String mPassword, String dni, String nombre, String apellido) {
 			this.mLogin = mLogin;
@@ -28,6 +25,4 @@ public abstract class Usuario {
 			this.nombre = nombre;
 			this.apellido = apellido;
 		}
-
-	
 }

@@ -80,7 +80,7 @@ public class IUEliminarUsuario extends JFrame {
 					iuPregunta.setVisible(true);
 			}
 		});
-		btnAltaUsuario.setBounds(253, 85, 141, 29);
+		btnAltaUsuario.setBounds(253, 55, 141, 29);
 		contentPane.add(btnAltaUsuario);
 
 		JLabel label_1 = new JLabel("Estado:");
