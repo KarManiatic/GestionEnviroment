@@ -1,4 +1,4 @@
-package persistencia;
+package dominio;
 
 import java.util.Vector;
 

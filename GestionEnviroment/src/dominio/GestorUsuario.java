@@ -1,8 +1,5 @@
 package dominio;
 
-import persistencia.Cliente;
-import persistencia.Usuario;
-
 public class GestorUsuario {
 	
 	public static boolean autenticar(String login, String password) throws Exception{
