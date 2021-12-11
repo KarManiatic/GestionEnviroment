@@ -99,7 +99,7 @@ public class IUNuevoUsuario extends JFrame {
 		btnAltaUsuario.setBounds(300, 85, 117, 29);
 		contentPane.add(btnAltaUsuario);
 
-		JLabel label_1 = new JLabel("Estado");
+		JLabel label_1 = new JLabel("Estado:");
 		label_1.setForeground(new Color(0,200,0));
 		label_1.setBounds(6, 255, 61, 16);
 		contentPane.add(label_1);
