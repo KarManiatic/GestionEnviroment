@@ -13,7 +13,7 @@ public class IUPreguntaSeguridad extends JFrame{
 	
 	private JPanel contentPane;
 
-	public IUPreguntaSeguridad(JTextPane textPane, JTextField textFieldPassword, JTextField textFieldLogin) {
+	public IUPreguntaSeguridad(JTextPane textPane, JTextField textFieldPassword, JTextField textFieldLogin, JTextField textFieldDni) {
 		setTitle("¿Seguro de lo que quieres hacer?");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 420, 285);
@@ -38,7 +38,7 @@ public class IUPreguntaSeguridad extends JFrame{
 		btnSi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					if (GestorUsuario.borrarCliente(textFieldLogin.getText(), textFieldPassword.getText()) == true) 
+					if (GestorUsuario.borrarCliente(textFieldLogin.getText(), textFieldPassword.getText(), textFieldDni.getText()) == true) 
 						textPane.setText("Cuenta eliminado correctamente");
 
 					else
