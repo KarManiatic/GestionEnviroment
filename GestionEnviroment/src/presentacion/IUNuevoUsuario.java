@@ -35,7 +35,7 @@ public class IUNuevoUsuario extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		setResizable(false);
-		ImageIcon img = new ImageIcon("tienda.jpg");
+		ImageIcon img = new ImageIcon("tienda.png");
 		setIconImage(img.getImage());
 		
 		JLabel lbl1 = new JLabel("Introduzca el nombre de usuario, la contraseña");

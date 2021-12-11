@@ -22,7 +22,7 @@ public class IUPreguntaSeguridad extends JFrame{
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		setResizable(false);
-		ImageIcon img = new ImageIcon("tienda.jpg");
+		ImageIcon img = new ImageIcon("tienda.png");
 		setIconImage(img.getImage());
 		
 		JLabel lblP1 = new JLabel("¿Seguro que desea eliminar la cuenta?");

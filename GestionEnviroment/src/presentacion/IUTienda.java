@@ -50,7 +50,7 @@ import persistencia.Agente;
 			setContentPane(contentPane);
 			contentPane.setLayout(null);
 			setResizable(false);
-			ImageIcon img = new ImageIcon("tienda.jpg");
+			ImageIcon img = new ImageIcon("tienda.png");
 			setIconImage(img.getImage());
 
 			JLabel lblIntroduzcaElLogin = new JLabel("Introduzca el login y el password para acceder al sistema");
