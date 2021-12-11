@@ -6,12 +6,13 @@ public class Cliente extends Usuario {
 
 	private double saldo;
 	private Long numTarjeta;
+	Agente a;
 	
-	public Cliente(String mLogin, String mPassword, String dni, String nombre, String apellido, Long numTarjeta) {
+	public Cliente(String mLogin, String mPassword, String dni, String nombre, String apellido, Long numTarjeta) throws Exception {
 		super(mLogin, mPassword, dni, nombre, apellido);
 		this.numTarjeta = numTarjeta;
 		this.saldo = 0;
-		Agente.crearBaseDatosSiNoExiste();
+		a.getAgente().crearBaseDatosSiNoExiste("CREATE TABLE `gestionenviromentdb`.`prueba"+nombre+"` (`id` INT NOT NULL,`tipo` VARCHAR(45) NULL,`nombre` VARCHAR(45) NULL,`nuevo` TINYINT NULL,`precio` DOUBLE NULL, PRIMARY KEY (`id`))");
 	}
 
 	//No estoy seguro si esto es así

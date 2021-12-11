@@ -15,7 +15,7 @@ public class Agente {
 	// Conexion con la base de datos
 	protected static Connection mBD;
 	// Identificador ODBC de la base de datos
-	private static String url = "jdbc:mysql://localhost:3306/pruebabd?user=root&password=IngSis21@";  //poner puerto correcto, por defecto 3306 y el nombre del esquema de la base de datos MySQL
+	private static String url = "jdbc:mysql://localhost:3306/gestionenviromentdb?user=root&password=IngSis21@";  //poner puerto correcto, por defecto 3306 y el nombre del esquema de la base de datos MySQL
 	
 	// Driver para conectar con bases de datos MySQL
 	private static String driver = "com.mysql.cj.jdbc.Driver";
