@@ -15,7 +15,7 @@ public class IUOpcionesUsuario extends JFrame{
 	private JPanel contentPane;
 	private JTextPane textPaneEstado;
 
-	public IUOpcionesUsuario() {
+	public IUOpcionesUsuario(JTextPane textPaneEstadoIUTienda) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 438, 385);
 		contentPane = new JPanel();
@@ -51,6 +51,8 @@ public class IUOpcionesUsuario extends JFrame{
 		btnCatalogo.setOpaque(false);
 		btnCatalogo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				IUMostrarCatalogo catalogo = new IUMostrarCatalogo(textPaneEstadoIUTienda);
+				catalogo.setVisible(true);
 				dispose();
 			}
 		});
@@ -62,6 +64,8 @@ public class IUOpcionesUsuario extends JFrame{
 		btnInventario.setOpaque(false);
 		btnInventario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				IUMostrarInventario inventario = new IUMostrarInventario();
+				inventario.setVisible(true);
 				dispose();
 			}
 		});

@@ -107,9 +107,9 @@ import persistencia.Agente;
 
 				public void actionPerformed(ActionEvent arg0) {
 					try {
-						if (GestorUsuario.autenticar(textFieldLog.getText(), textFieldPass.getText()) != false) {
+						if (GestorUsuario.autenticar(textFieldLog.getText(), textFieldPass.getText()) == false) {
 							textPaneEstado.setText("El login ha  sido correcto");
-							IUOpcionesUsuario mostrarOpciones = new IUOpcionesUsuario();
+							IUOpcionesUsuario mostrarOpciones = new IUOpcionesUsuario(textPaneEstado);
 							mostrarOpciones.setVisible(true);
 						} 
 						else {
