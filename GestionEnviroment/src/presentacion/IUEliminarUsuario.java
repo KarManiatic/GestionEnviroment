@@ -21,15 +21,15 @@ import java.awt.event.ActionEvent;
 public class IUEliminarUsuario extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textFieldLogin;
-	private JTextField textFieldPassword;
+	private JTextField textFieldLog;
+	private JTextField textFieldPass;
 	private JTextField textFieldDni;
 	private JTextPane textPaneEstado;
 
 	public IUEliminarUsuario() {
 		setTitle("Eliminar usuario registrado");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 438, 385);
+		setBounds(100, 100, 480, 385);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -40,47 +40,76 @@ public class IUEliminarUsuario extends JFrame {
 		
 		JLabel lbl1 = new JLabel("Introduzca los siguientes datos de la cuenta que desees eliminar");
 		lbl1.setForeground(Color.ORANGE);
-		lbl1.setBounds(20, 10, 386, 43);
+		lbl1.setBounds(40, 5, 386, 43);
 		contentPane.add(lbl1);
 
-		JLabel lblPass = new JLabel("Password:");
-		lblPass.setBounds(6, 155, 69, 16);
-		lblPass.setForeground(Color.ORANGE);
-		contentPane.add(lblPass);
 		
-		JLabel lblDni = new JLabel("Dni:");
-		lblDni.setBounds(20, 55, 70, 16);
+		JLabel lblDni = new JLabel("Dni");
+		lblDni.setBounds(290, 100, 120, 16);
 		lblDni.setForeground(Color.ORANGE);
 		contentPane.add(lblDni);
-
-		JLabel lblLogin = new JLabel("Login:");
-		lblLogin.setForeground(Color.ORANGE);
-		lblLogin.setBounds(15, 105, 69, 16);
-		contentPane.add(lblLogin);
-
-		textFieldLogin = new JTextField();
-		textFieldLogin.setBounds(87, 105, 134, 28);
-		contentPane.add(textFieldLogin);
-		textFieldLogin.setColumns(10);
-
-		textFieldPassword = new JTextField();
-		textFieldPassword.setColumns(10);
-		textFieldPassword.setBounds(87, 155, 134, 28);
-		contentPane.add(textFieldPassword);
 		
 		textFieldDni = new JTextField();
 		textFieldDni.setBounds(87, 55, 134, 28);
+		textFieldDni.setForeground(Color.WHITE);
+		textFieldDni.setBounds(315, 136, 125, 28);
+		//textFieldDni.setBorder(null);
+		textFieldDni.setBackground(new Color(0,0,0,0));
+		textFieldDni.setOpaque(false);
 		contentPane.add(textFieldDni);
 		textFieldDni.setColumns(10);
+		
+		textFieldLog = new JTextField();
+		textFieldLog.setBounds(75, 90, 125, 28);
+		textFieldLog.setForeground(Color.WHITE);
+		//textFieldLog.setBorder(null);
+		textFieldLog.setBackground(new Color(0,0,0,0));
+		textFieldLog.setOpaque(false);
+		contentPane.add(textFieldLog);
+		textFieldLog.setColumns(10);
+
+		JLabel lblPass = new JLabel("Password");
+		lblPass.setForeground(Color.ORANGE);
+		lblPass.setBounds(45, 160, 65, 16);
+		contentPane.add(lblPass);
+
+		JLabel lblLogin = new JLabel("Login");
+		lblLogin.setForeground(Color.ORANGE);
+		lblLogin.setBounds(45, 55, 61, 16);
+		contentPane.add(lblLogin);
+
+		textFieldPass = new JTextField();
+		textFieldPass.setColumns(10);
+		textFieldPass.setForeground(Color.WHITE);
+		textFieldPass.setBounds(75, 196, 125, 28);
+		//textFieldPass.setBorder(null);
+		textFieldPass.setBackground(new Color(0,0,0,0));
+		textFieldPass.setOpaque(false);
+		contentPane.add(textFieldPass);
+		
+		JLabel cuadroTexto3 = new JLabel();
+		cuadroTexto3.setIcon(new ImageIcon("cuadroTexto.png"));
+		cuadroTexto3.setBounds(250, 86, 210, 100);
+		contentPane.add(cuadroTexto3);
+		
+		JLabel cuadroTexto2 = new JLabel();
+		cuadroTexto2.setIcon(new ImageIcon("cuadroTexto.png"));
+		cuadroTexto2.setBounds(10, 40, 210, 100);
+		contentPane.add(cuadroTexto2);
+		
+		JLabel cuadroTexto1 = new JLabel();
+		cuadroTexto1.setIcon(new ImageIcon("cuadroTexto.png"));
+		cuadroTexto1.setBounds(10, 146, 210, 100);
+		contentPane.add(cuadroTexto1);
 
 		JButton btnEliminarUsuario = new JButton("Eliminar Cuenta");
 		btnEliminarUsuario.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent arg0) {
-					IUPreguntaSeguridad iuPregunta = new IUPreguntaSeguridad(textPaneEstado, textFieldLogin, textFieldPassword, textFieldDni);
+					IUPreguntaSeguridad iuPregunta = new IUPreguntaSeguridad(textPaneEstado, textFieldLog, textFieldPass, textFieldDni);
 					iuPregunta.setVisible(true);
 			}
 		});
-		btnEliminarUsuario.setBounds(290, 55, 141, 29);
+		btnEliminarUsuario.setBounds(346, 55, 130, 29);
 		btnEliminarUsuario.setBorderPainted(false);
 		btnEliminarUsuario.setBackground(new Color(0,0,0,0));
 		btnEliminarUsuario.setOpaque(false);
@@ -88,7 +117,7 @@ public class IUEliminarUsuario extends JFrame {
 		
 		JLabel rojo = new JLabel();
 		rojo.setIcon(new ImageIcon("botonRojo.png"));
-		rojo.setBounds(300, 55, 160, 29);
+		rojo.setBounds(342, 55, 160, 29);
 		contentPane.add(rojo);
 
 		JLabel label_1 = new JLabel("Estado:");
@@ -107,7 +136,7 @@ public class IUEliminarUsuario extends JFrame {
 		contentPane.add(textPaneEstado);
 		
 		JLabel lblFondo = new JLabel("");
-		lblFondo.setBounds(0, 0, 450, 385);
+		lblFondo.setBounds(0, 0, 480, 385);
 		lblFondo.setIcon(new ImageIcon("fondo.jpg"));
 		contentPane.add(lblFondo);
 	}

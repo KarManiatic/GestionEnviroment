@@ -61,35 +61,53 @@ import persistencia.Agente;
 */
 			JLabel lblIntroduzcaElLogin = new JLabel("Introduzca el login y el password para acceder al sistema");
 			lblIntroduzcaElLogin.setForeground(Color.ORANGE);
-			lblIntroduzcaElLogin.setBounds(6, 19, 386, 43);
+			lblIntroduzcaElLogin.setBounds(40, 5, 386, 43);
 			contentPane.add(lblIntroduzcaElLogin);
 
 			textFieldLog = new JTextField();
-			textFieldLog.setBounds(86, 77, 134, 28);
+			textFieldLog.setBounds(75, 90, 125, 28);
+			textFieldLog.setForeground(Color.WHITE);
+			//textFieldLog.setBorder(null);
+			textFieldLog.setBackground(new Color(0,0,0,0));
+			textFieldLog.setOpaque(false);
 			contentPane.add(textFieldLog);
 			textFieldLog.setColumns(10);
 
-			JLabel lblPass = new JLabel("Password:");
+			JLabel lblPass = new JLabel("Password");
 			lblPass.setForeground(Color.ORANGE);
-			lblPass.setBounds(6, 122, 73, 16);
+			lblPass.setBounds(45, 160, 65, 16);
 			contentPane.add(lblPass);
 
-			JLabel lblLogin = new JLabel("Login:");
+			JLabel lblLogin = new JLabel("Login");
 			lblLogin.setForeground(Color.ORANGE);
-			lblLogin.setBounds(6, 77, 61, 16);
+			lblLogin.setBounds(45, 55, 61, 16);
 			contentPane.add(lblLogin);
 
 			textFieldPass = new JTextField();
 			textFieldPass.setColumns(10);
-			textFieldPass.setBounds(86, 116, 134, 28);
+			textFieldPass.setForeground(Color.WHITE);
+			textFieldPass.setBounds(75, 196, 125, 28);
+			//textFieldPass.setBorder(null);
+			textFieldPass.setBackground(new Color(0,0,0,0));
+			textFieldPass.setOpaque(false);
 			contentPane.add(textFieldPass);
+			
+			JLabel cuadroTexto2 = new JLabel();
+			cuadroTexto2.setIcon(new ImageIcon("cuadroTexto.png"));
+			cuadroTexto2.setBounds(10, 40, 210, 100);
+			contentPane.add(cuadroTexto2);
+			
+			JLabel cuadroTexto1 = new JLabel();
+			cuadroTexto1.setIcon(new ImageIcon("cuadroTexto.png"));
+			cuadroTexto1.setBounds(10, 146, 210, 100);
+			contentPane.add(cuadroTexto1);
 
 			JButton buttonAceptar = new JButton("Aceptar");
 			buttonAceptar.addActionListener(new ActionListener() {
 
 				public void actionPerformed(ActionEvent arg0) {
 					try {
-						if (GestorUsuario.autenticar(textFieldLog.getText(), textFieldPass.getText()) == false) {
+						if (GestorUsuario.autenticar(textFieldLog.getText(), textFieldPass.getText()) != false) {
 							textPaneEstado.setText("El login ha  sido correcto");
 							IUOpcionesUsuario mostrarOpciones = new IUOpcionesUsuario();
 							mostrarOpciones.setVisible(true);
