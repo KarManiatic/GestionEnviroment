@@ -9,9 +9,10 @@ public class GestorUsuario {
 		return autenticado;
 	}
 	
-	public static boolean nuevoCliente(String login, String password, String dni, String nombre, String apellido, Long numTarjeta) throws Exception{
+	public static boolean nuevoCliente(String login, String password, String dni, String nombre, String apellido, long numTarjeta) throws Exception{
 		boolean insertado = false;
-		if(Cliente.insert(login, password, dni, nombre, apellido, numTarjeta) ==1)
+		
+		if(Cliente.insert(login, password, dni, nombre, apellido, numTarjeta) == 1)
 			insertado = true;
 		return insertado;		
 	}
