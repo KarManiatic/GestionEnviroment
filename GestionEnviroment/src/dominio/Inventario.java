@@ -8,17 +8,17 @@ public class Inventario {
 	
 	private int nProductos;
 	private ArrayList listaProductos ;
-	private String nombreUsuario;
+	private String dniUsuario;
 	
-	public Inventario(String nombreUsuario) throws Exception  {
+	public Inventario(String dniUsuario) throws Exception  {
 		nProductos = 0;
 		listaProductos = null;
-		this.nombreUsuario = nombreUsuario;
+		this.dniUsuario = dniUsuario;
+				
+		//Agente a = null;
+		//a = Agente.getAgente();
 		
-		Agente a = null;
-		a = Agente.getAgente();
-		
-		a.getAgente().crearBaseDatosSiNoExiste("CREATE TABLE `gestionenviromentdb`.`inventario"+nombreUsuario+"` (`id` INT NOT NULL,`tipo` VARCHAR(45) NULL,`nombre` VARCHAR(45) NULL,`nuevo` TINYINT NULL,`precio` DOUBLE NULL, PRIMARY KEY (`id`))");
+		//a.getAgente().crearTablaDatos("CREATE TABLE `gestionenviromentdb`.`inventario"+dniUsuario+"` (`id` INT NOT NULL,`tipo` VARCHAR(45) NULL,`nombre` VARCHAR(45) NULL,`nuevo` TINYINT NULL,`precio` DOUBLE NULL, PRIMARY KEY (`id`))");
 	}
 
 	public int getnProductos() {

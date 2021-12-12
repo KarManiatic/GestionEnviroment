@@ -6,8 +6,11 @@ public class Principal {
 
 	public static void main(String [] args) throws Exception {
 		
-		Cliente c1 = new Cliente("patata", "123", "06298896R", "Carlos", "Romero", (long) 25);
-	
+		//Cliente c1 = new Cliente("patata", "123", "06298896R", "Carlos", "Romero", (long) 25);
+		
+		Cliente c1 = new Cliente("KarManiatic", "12345", "06298896R", "Carlos", "Romero", 4653215);
+		
+		c1.insert("KarManiatic", "12345", "06298896R", "Carlos", "Romero", 4653215);
 		//Agente a = null;
 		//a = Agente.getAgente();
 		
