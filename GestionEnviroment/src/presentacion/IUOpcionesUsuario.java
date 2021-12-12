@@ -10,12 +10,12 @@ import javax.swing.border.EmptyBorder;
 
 import dominio.GestorUsuario;
 
-public class IUOpciones extends JFrame{
+public class IUOpcionesUsuario extends JFrame{
 
 	private JPanel contentPane;
 	private JTextPane textPaneEstado;
 
-	public IUOpciones() {
+	public IUOpcionesUsuario() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 438, 385);
 		contentPane = new JPanel();
