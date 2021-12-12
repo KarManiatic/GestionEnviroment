@@ -2,14 +2,14 @@ package dominio;
 
 public class Producto {
 	
-	private String id;
+	private int id;
 	private String nombre;
 	private String tipo;
 	private double precio;
 	private boolean nuevo;
 	
 	
-	public Producto(String id, String nombre, String tipo, double precio, boolean nuevo) {
+	public Producto(int id, String nombre, String tipo, double precio, boolean nuevo) {
 		this.id = id;
 		this.nombre = nombre;
 		this.tipo = tipo;
@@ -18,12 +18,12 @@ public class Producto {
 	}
 
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
