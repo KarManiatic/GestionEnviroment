@@ -1,18 +1,18 @@
 package dominio;
 
-import persistencia.Agente;
-
 public class Cliente extends Usuario {
 
 	private double saldo;
 	private Long numTarjeta;
-	Agente a;
+	private Inventario inventario;
 	
 	public Cliente(String mLogin, String mPassword, String dni, String nombre, String apellido, Long numTarjeta) throws Exception {
 		super(mLogin, mPassword, dni, nombre, apellido);
 		this.numTarjeta = numTarjeta;
 		this.saldo = 0;
-		a.getAgente().crearBaseDatosSiNoExiste("CREATE TABLE `gestionenviromentdb`.`prueba"+nombre+"` (`id` INT NOT NULL,`tipo` VARCHAR(45) NULL,`nombre` VARCHAR(45) NULL,`nuevo` TINYINT NULL,`precio` DOUBLE NULL, PRIMARY KEY (`id`))");
+		
+		inventario = new Inventario (nombre);
+		
 	}
 
 	//No estoy seguro si esto es así
