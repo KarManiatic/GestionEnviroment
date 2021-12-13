@@ -25,7 +25,7 @@ import persistencia.Agente;
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
 					try {
-						Agente agente = Agente.getAgente();
+						//Agente agente = Agente.getAgente();
 						//agente.crearTablaDatos();
 						IUTienda frame = new IUTienda();
 						frame.setVisible(true);

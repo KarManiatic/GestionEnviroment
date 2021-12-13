@@ -2,7 +2,7 @@ package dominio;
 
 public class GestorUsuario {
 	
-	public static boolean autenticar(String login, String password) throws Exception{
+	public static boolean autenticar(String login, String password) throws Exception{ //se usa en IUTienda linea 108
 		boolean autenticado = false;
 		if(Cliente.read(login, password) != null)
 			autenticado = true;

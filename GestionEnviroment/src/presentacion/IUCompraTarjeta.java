@@ -65,6 +65,7 @@ public class IUCompraTarjeta extends JFrame{
 
 			public void actionPerformed(ActionEvent arg0) {
 				textPaneEstado.setText("Compra mal");
+				//Aqui deberia hacer la compra con tarjeta que devuelva un boolean
 				dispose();
 			}
 		});

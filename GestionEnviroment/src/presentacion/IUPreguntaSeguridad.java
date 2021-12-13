@@ -38,14 +38,18 @@ public class IUPreguntaSeguridad extends JFrame{
 		btnSi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					if (GestorUsuario.borrarCliente(textFieldLogin.getText(), textFieldPassword.getText(), textFieldDni.getText()) == true) 
+					if(GestorUsuario.borrarCliente(textFieldLogin.getText(), textFieldPassword.getText(), textFieldDni.getText()) == true) {
 						textPane.setText("Cuenta eliminado correctamente");
+						dispose();
+					}
 
-					else
+					else {
 						textPane.setText("Datos introducidos no se corresponden con los de ninguna cuenta");
-					dispose();
+						dispose();
+					}
 				}
 				catch(Exception e) {
+					dispose();
 					textPane.setText("Error, no se ha podido borrar la cuenta. Tal vez no exista");
 				}
 				

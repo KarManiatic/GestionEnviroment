@@ -6,7 +6,7 @@ public class GestorCompras {
 		return true;
 	}
 	
-	public boolean pagoTarjeta(String numerjeta) {
+	public boolean pagoTarjeta(int id, String numerjeta) {
 		return true;
 	}
 

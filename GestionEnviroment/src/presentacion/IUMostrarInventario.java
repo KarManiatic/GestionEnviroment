@@ -40,6 +40,8 @@ public class IUMostrarInventario extends JFrame{
 		scrollPaneSalida.setWheelScrollingEnabled(true);
 		contentPane.add(scrollPaneSalida);
 		
+		//For que recupere la informacion del inventario del cliente
+		
 		
 		JLabel lblFondo = new JLabel("");
 		lblFondo.setBounds(0, 0, 450, 385);

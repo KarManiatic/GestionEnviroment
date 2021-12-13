@@ -73,6 +73,7 @@ public class IUOpcionesCompra extends JFrame {
 		btnInventario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				textPaneEstado.setText("Compra mal");
+				//comprar con el credito de la tienda
 				dispose();
 			}
 		});
