@@ -18,7 +18,6 @@ import javax.swing.JTextPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-import dominio.GestorUsuario;
 
 public class IURellenarDatosUsuario extends JFrame {
 
@@ -27,7 +26,6 @@ public class IURellenarDatosUsuario extends JFrame {
 	private JTextField textFieldNombre;
 	private JTextField textFieldApellido;
 	private JTextField textFieldTarjeta;
-	private JTextPane textPaneEstado;
 
 	public IURellenarDatosUsuario(JTextField textFieldPass, JTextField textFieldLogin, JTextPane textPaneEstado) {
 		setTitle("Registro de nuevo usuario");

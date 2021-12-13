@@ -8,12 +8,9 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-import dominio.GestorUsuario;
-
 public class IUOpcionesUsuario extends JFrame{
 
 	private JPanel contentPane;
-	private JTextPane textPaneEstado;
 
 	public IUOpcionesUsuario(JTextPane textPaneEstadoIUTienda) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

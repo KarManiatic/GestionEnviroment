@@ -2,10 +2,8 @@ package presentacion;
 
 import java.awt.Color;
 import java.awt.EventQueue;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -27,8 +25,8 @@ import persistencia.Agente;
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
 					try {
-						//Agente agente = Agente.getAgente();
-						//agente.crearBaseDatosSiNoExiste();
+						Agente agente = Agente.getAgente();
+						//agente.crearTablaDatos();
 						IUTienda frame = new IUTienda();
 						frame.setVisible(true);
 					} catch (Exception e) {
@@ -107,7 +105,7 @@ import persistencia.Agente;
 
 				public void actionPerformed(ActionEvent arg0) {
 					try {
-						if (GestorUsuario.autenticar(textFieldLog.getText(), textFieldPass.getText()) == false) {
+						if (GestorUsuario.autenticar(textFieldLog.getText(), textFieldPass.getText()) != false) {
 							textPaneEstado.setText("El login ha  sido correcto");
 							IUOpcionesUsuario mostrarOpciones = new IUOpcionesUsuario(textPaneEstado);
 							mostrarOpciones.setVisible(true);
