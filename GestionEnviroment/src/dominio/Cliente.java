@@ -11,14 +11,22 @@ public class Cliente extends Usuario {
 	private long numTarjeta;
 	private Inventario inventario;
 	
-	public Cliente(String mLogin, String mPassword, String dni, String nombre, String apellido, long numTarjeta) throws Exception, SQLException {
+	public Cliente(String mLogin, String mPassword, String dni, String nombre, String apellido, long numTarjeta) throws Exception, SQLException { //Nuevo usuario?
 		super(mLogin, mPassword, dni, nombre, apellido);
 		this.numTarjeta = numTarjeta;
 		this.saldo = 0;
 		//Creación de un inventario personal, cuyo indentificativo, es el dni del usuario, que es único
+		//No siempre se crea, tenemos que ver si ya existe, en caso contrario, no se crea, simplemente se usa
 		inventario = new Inventario (dni);
 	}
-		
+	
+	public Cliente(String mLogin, String mPassword, String dni, String nombre, String apellido, double saldo, long numTarjeta, Inventario inventario) {
+		super(mLogin, mPassword, dni, nombre, apellido);
+		this.numTarjeta = numTarjeta;
+		this.saldo = saldo;
+		this.inventario = inventario;
+	}
+	
 	public double getSaldo() {
 		return saldo;
 	}
@@ -31,41 +39,66 @@ public class Cliente extends Usuario {
 		return numTarjeta;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public static Cliente read(String login, String password) throws Exception {
 		
-		boolean check;
 		Vector<Object> aux = null;
-		Vector<Object> vectoradevolver = Agente.getAgente().select("SELECT * FROM `usuarios"+login+"` WHERE `dni` = '"+login+"';");  //Meter el password
+		Vector<Object> vectoradevolver = Agente.getAgente().select("SELECT * FROM `usuarios` WHERE `mLogin` = '"+login+"' AND `mPassword` = '"+password+"';"  );  //Meter el password
+		Inventario i = null;
 		Cliente c = null;
 		
 		aux = new Vector<Object>();
 		if (vectoradevolver.size() == 1){
 			aux = (Vector<Object>) vectoradevolver.elementAt(0);
-			c = new Cliente((String) aux.elementAt(0), (String) aux.elementAt(1), (String) aux.elementAt(2), (String) aux.elementAt(3), (String) aux.elementAt(4), (long) aux.elementAt(5));
+			i = new Inventario ((String) aux.elementAt(3));
+			c = new Cliente((String) aux.elementAt(0), (String) aux.elementAt(1), (String) aux.elementAt(2), (String) aux.elementAt(3), (String) aux.elementAt(4), (double)aux.elementAt(5), (long) aux.elementAt(6), i);
 		}
 		
 		return c;
 	}
 	
-	public static int insert(String login, String password, String dni, String nombre, String apellido, long numTarjeta) throws Exception,SQLException {
+	public int insert(String login, String password, String dni, String nombre, String apellido, double saldo, long numTarjeta) throws Exception, SQLException {
 		int check;
-		check = Agente.getAgente().insert("INSERT INTO `gestionenviromentdb`.`usuarios`(`mLogin`,`mPassword`,`dni`,`nombre`,`apellido`) VALUES('"+login+"','"+password+"','"+dni+"','"+nombre+"','"+apellido+"');");
+		check = Agente.getAgente().insert("INSERT INTO `gestionenviromentdb`.`usuarios`(`mLogin`,`mPassword`,`dni`,`nombre`,`apellido`,`numTarjeta`) VALUES('"+login+"','"+password+"','"+dni+"','"+nombre+"','"+apellido+"','"+numTarjeta+"');");//Saldo
 		return check;
 	}
 	
 	public static int delete(String login, String password, String dni) throws Exception {
 		int check;
-		check = Agente.getAgente().insert("DELETE..."); //Completar, que me da palo
+		check = Agente.getAgente().delete("DELETE FROM `gestionenviromentdb`.`usuarios` WHERE `mLogin` = '"+login+"' AND `mPassword` = '"+password+"' AND `dni` = '"+dni+"';"); 
 		return check;
 	}
 	
-	//Es solo para implementar de la encapsulación
 	public Producto leerProductoInventarioPersonal(int id) throws Exception {
 		return inventario.readProducto(id);
 	}
 
 	public int nProductosInventario() {
 		return inventario.getnProductos();
+	}
+	
+	public boolean pagoSaldo(double pago) {
+		boolean check = false;
+		if (saldo >= pago) {
+			saldo = saldo-pago;
+			check = true;
+		}
+		return check;
+	}
+	
+	public boolean pagoTarjeta(long numTarjetaEntrante) {
+		boolean check = false;
+		if(numTarjeta == numTarjetaEntrante)
+			check = true;
+		return check;
+	}
+	
+	public void añadirProductoInventario(Producto producto) throws Exception  {
+		inventario.addProducto(producto);	
+	}
+
+	public String toString() {
+		return "Cliente [mLogin=" + mLogin + ", mPassword=" + mPassword + ", dni=" + dni + ", nombre=" + nombre + ", apellido=" + apellido+ ", saldo=" + saldo + ", numTarjeta=" + numTarjeta +".]";
 	}
 	
 }

@@ -9,12 +9,13 @@ public class Inventario {
 	
 	private int nProductos;
 	private ArrayList listaProductos ;
-	private String dniUsuario;
+	private String dniUsuario; 
 	
 	public Inventario(String dniUsuario) throws Exception  {
 		nProductos = 0;
 		listaProductos = null;
 		this.dniUsuario = dniUsuario;
+		
 						
 		Agente.getAgente().crearTablaDatos("CREATE TABLE `gestionenviromentdb`.`inventario"+dniUsuario+"` (`id` INT NOT NULL,`tipo` VARCHAR(45) NULL,`nombre` VARCHAR(45) NULL,`nuevo` TINYINT NULL,`precio` DOUBLE NULL, PRIMARY KEY (`id`))");
 	}

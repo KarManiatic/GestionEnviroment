@@ -4,11 +4,11 @@ import java.util.Vector;
 
 public abstract class Usuario {
 	
-	private String mLogin;
-	private String mPassword;
-	private String dni;
-	private String nombre;
-	private String apellido;
+	protected String mLogin;
+	protected String mPassword;
+	protected String dni;
+	protected String nombre;
+	protected String apellido;
 	
 	public Usuario(){
 		this.mLogin = null;

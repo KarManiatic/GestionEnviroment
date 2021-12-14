@@ -1,20 +1,27 @@
 package dominio;
 
-import java.util.Vector;
-
 public class GestorProductos {
 
-	//Esto lo dejo así(en void), porque no estoy seguro de cómo quieres sacarlo, pero vamos,  es cosa de poco
-	public void mostrarInventario(Cliente cliente) throws Exception {
+	public String[] mostrarInventario(String login, String password) throws Exception {
+		Cliente cliente = Cliente.read(login, password);
+		String productos[] = new String[cliente.nProductosInventario()];
 		
 		for(int i=0; i < cliente.nProductosInventario(); i++) {
-			cliente.leerProductoInventarioPersonal(i);
+			productos[i] = cliente.leerProductoInventarioPersonal(i).toString();
 		}
-		
+		return productos; 
 	}
 	
-	public void mostrarCatalogo() {
+	public String[] mostrarCatalogo() throws Exception {
 		
+		String productos[] = new String[Catalogo.getnProductos()];
 		
+		for(int i=0; i < Catalogo.getnProductos(); i++) {
+			productos[i] = Catalogo.readProducto(i).toString();
+		}
+		return productos; 
 	}
+		
+
 }
+

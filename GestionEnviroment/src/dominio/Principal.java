@@ -14,11 +14,14 @@ public class Principal {
 		//c1.insert("KarManiatic", "12345", "06298896R", "Carlos", "Romero", 4653215);
 		
 		//Con esto puedo sacar los datos, haciendo un vector y leyendolo, cada línea es un elemento.
-		Vector<Object> v = Cliente.read("KarManiatic", "12345"); 
 		
-		for(int i=0; i<v.size(); i++){
+		boolean c = false;
+		if(GestorUsuario.autenticar("KarManiatic","12345")==true)
+			System.out.println("Funciona");
+		
+		/*for(int i=0; i<v.size(); i++){
             System.out.print(v.elementAt(i)+"\t");
-        }
+        }*/
 		
 	}
 	

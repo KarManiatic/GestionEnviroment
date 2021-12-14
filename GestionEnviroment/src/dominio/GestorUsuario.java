@@ -11,8 +11,8 @@ public class GestorUsuario {
 	
 	public static boolean nuevoCliente(String login, String password, String dni, String nombre, String apellido, long numTarjeta) throws Exception{
 		boolean insertado = false;
-		
-		if(Cliente.insert(login, password, dni, nombre, apellido, numTarjeta) == 1)
+		Cliente cliente = new Cliente(login, password, dni, nombre, apellido, numTarjeta);  
+		if(cliente.insert(login, password, dni, nombre, apellido, 0 ,numTarjeta) == 1)
 			insertado = true;
 		return insertado;		
 	}
