@@ -4,10 +4,11 @@ public class GestorCompras {
 	
 	public static boolean compraSaldo(int id, String login, String password) throws Exception {
 		boolean check = false;
+		Catalogo catalogo = new Catalogo(10);
 		Producto producto = Catalogo.readProducto(id);
 		Cliente cliente = Cliente.read(login, password);
 		if(cliente.pagoSaldo(producto.getPrecio())){
-			//Catalogo.eliminarProducto(id);
+			catalogo.eliminarProducto(id);
 			cliente.añadirProductoInventario(producto);
 			check = true;
 		}

@@ -12,11 +12,12 @@ public class Principal {
 		
 		//check = GestorCompras.compraTarjeta(0, 0123455, "Vortegag", "12345");
 		
+		//GestorUsuario.nuevoCliente("Jime", "puto", "01234567", "C", "R", tarjeta);
 		
-		//check = GestorCompras.compraSaldo(00, "Vortegag", "12345");
+		check = GestorCompras.compraSaldo(00, "Jime", "puto");
 		
-		//if(check)
-		//System.out.println("Perfe");
+		if(check)
+		System.out.println("Perfe");
 		
 		String [] catalogo = GestorProductos.mostrarCatalogo();
 		
