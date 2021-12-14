@@ -1,6 +1,6 @@
 package dominio;
 
-public class GestorUsuario {
+public class GestorUsuario { //Checked, funciona todo
 	
 	public static boolean autenticar(String login, String password) throws Exception{ //se usa en IUTienda linea 108
 		boolean autenticado = false;

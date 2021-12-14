@@ -11,7 +11,7 @@ public class Cliente extends Usuario {
 	private long numTarjeta;
 	private Inventario inventario;
 	
-	public Cliente(String mLogin, String mPassword, String dni, String nombre, String apellido, long numTarjeta) throws Exception, SQLException { //Nuevo usuario?
+	public Cliente(String mLogin, String mPassword, String dni, String nombre, String apellido, long numTarjeta) throws Exception, SQLException { 
 		super(mLogin, mPassword, dni, nombre, apellido);
 		this.numTarjeta = numTarjeta;
 		this.saldo = 0;
@@ -59,7 +59,7 @@ public class Cliente extends Usuario {
 	
 	public int insert(String login, String password, String dni, String nombre, String apellido, double saldo, long numTarjeta) throws Exception, SQLException {
 		int check;
-		check = Agente.getAgente().insert("INSERT INTO `gestionenviromentdb`.`usuarios`(`mLogin`,`mPassword`,`dni`,`nombre`,`apellido`,`numTarjeta`) VALUES('"+login+"','"+password+"','"+dni+"','"+nombre+"','"+apellido+"','"+numTarjeta+"');");//Saldo
+		check = Agente.getAgente().insert("INSERT INTO `gestionenviromentdb`.`usuarios`(`mLogin`,`mPassword`,`dni`,`nombre`,`apellido`,`saldo`,`numTarjeta`) VALUES('"+login+"','"+password+"','"+dni+"','"+nombre+"','"+apellido+"','"+saldo+"','"+numTarjeta+"');");
 		return check;
 	}
 	

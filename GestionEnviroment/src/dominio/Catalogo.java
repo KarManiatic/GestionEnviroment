@@ -1,7 +1,6 @@
 package dominio;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Vector;
 
 import persistencia.Agente;
@@ -10,7 +9,7 @@ public class Catalogo {
 	
 	private static int nProductos;
 	
-	public Catalogo() throws Exception  {
+	public Catalogo(int nProductos) throws Exception  {
 		nProductos = 0;
 	}
 
@@ -46,7 +45,8 @@ public class Catalogo {
 
 	public static int eliminarProducto(int id) throws SQLException, Exception {
 		int check;
-		check = Agente.getAgente().delete("DELETE FROM `gestionenviromentdb`.`catalogoproductos` WHERE `id` = '"+id+"';"); 
+		check = Agente.getAgente().delete("DELETE FROM `gestionenviromentdb`.`catalogoproductos` WHERE `id` = '"+id+"';");
+		nProductos = nProductos-1;
 		return check;
 	}
 	

@@ -7,17 +7,12 @@ public class Principal {
 
 	public static void main(String [] args) throws Exception {
 		
-		//Cliente c1 = new Cliente("patata", "123", "06298896R", "Carlos", "Romero", (long) 25);
+		boolean check = false;
+		long tarjeta = 0123455;
+		check = GestorUsuario.borrarCliente("KarManiatic", "12345", "06298896");
 		
-		//Cliente c1 = new Cliente("KarManiatic", "12345", "06298896R", "Carlos", "Romero", 4653215);
-		
-		//c1.insert("KarManiatic", "12345", "06298896R", "Carlos", "Romero", 4653215);
-		
-		//Con esto puedo sacar los datos, haciendo un vector y leyendolo, cada línea es un elemento.
-		
-		boolean c = false;
-		if(GestorUsuario.autenticar("KarManiatic","12345")==true)
-			System.out.println("Funciona");
+		if(check)
+		System.out.println("Perfe");
 		
 		/*for(int i=0; i<v.size(); i++){
             System.out.print(v.elementAt(i)+"\t");
