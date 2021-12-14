@@ -2,7 +2,7 @@ package dominio;
 
 public class GestorProductos {
 
-	public String[] mostrarInventario(String login, String password) throws Exception {
+	public static String[] mostrarInventario(String login, String password) throws Exception {
 		Cliente cliente = Cliente.read(login, password);
 		String productos[] = new String[cliente.nProductosInventario()];
 		
@@ -12,7 +12,7 @@ public class GestorProductos {
 		return productos; 
 	}
 	
-	public String[] mostrarCatalogo() throws Exception {
+	public static String[] mostrarCatalogo() throws Exception {
 		
 		String productos[] = new String[Catalogo.getnProductos()];
 		

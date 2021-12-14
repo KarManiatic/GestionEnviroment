@@ -7,13 +7,16 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+
+import dominio.GestorProductos;
 
 public class IUMostrarInventario extends JFrame{
 	
 	private JPanel contentPane;
 	
-	public IUMostrarInventario() {
+	public IUMostrarInventario(JTextField login, JTextField pass) {
 		setTitle("Inventario");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 438, 385);
@@ -40,7 +43,16 @@ public class IUMostrarInventario extends JFrame{
 		scrollPaneSalida.setWheelScrollingEnabled(true);
 		contentPane.add(scrollPaneSalida);
 		
-		//For que recupere la informacion del inventario del cliente
+		try {
+			String[]inventario = GestorProductos.mostrarInventario(login.getText(),pass.getText());
+			for(int i=0;i<inventario.length;i++) {
+				
+			}
+		}
+		catch(Exception e) {
+			
+		}
+		
 		
 		
 		JLabel lblFondo = new JLabel("");
