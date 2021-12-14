@@ -68,8 +68,10 @@ public class Producto {
 	}
 
 	public String toString() {
-		return "Producto [id=" + id + ", nombre=" + nombre + ", tipo=" + tipo + ", precio=" + precio + ", nuevo="
-				+ nuevo + "]";
+		String[]siNo= {"Si","No"};
+		if(nuevo==1) return "ID: " + id + " || Nombre: " + nombre + " || Tipo: " + tipo + " || Precio: " + precio + " || Nuevo: "+siNo[0];
+		else return "ID: " + id + " || Nombre: " + nombre + " || Tipo: " + tipo + " || Precio: " + precio + " || Nuevo: "+siNo[1];
+		
 	}
 	
 	

@@ -23,4 +23,9 @@ public class GestorUsuario { //Checked, funciona todo
 		return eliminado;
 	}
 	
+	public static double consultarSaldo(String login, String password) throws Exception{
+		Cliente cliente = Cliente.read(login, password);
+		return cliente.getSaldo();
+	}
+	
 }

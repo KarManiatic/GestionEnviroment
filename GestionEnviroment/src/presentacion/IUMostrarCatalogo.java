@@ -3,7 +3,10 @@ package presentacion;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
+
+import dominio.GestorProductos;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -22,7 +25,7 @@ public class IUMostrarCatalogo extends JFrame{
 	private JPanel contentPane;
 	private JTextField textFieldId;
 	
-	public IUMostrarCatalogo(JTextPane textPaneEstado) {
+	public IUMostrarCatalogo(JTextPane textPaneEstado, JTextField textFieldLog, JTextField textFieldPass) {
 		setTitle("Catálogo");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 438, 420);
@@ -44,10 +47,23 @@ public class IUMostrarCatalogo extends JFrame{
 		lblIntr.setBounds(75, 25, 400, 43);
 		contentPane.add(lblIntr);
 		
-		JScrollPane scrollPaneSalida = new JScrollPane();  
+		JTextArea displayStrings = new JTextArea(5, 30);
+		displayStrings.setEditable(false);
+		JScrollPane scrollPaneSalida = new JScrollPane(displayStrings);  
 		scrollPaneSalida.setBounds(8, 75, 407, 200); 
-		scrollPaneSalida.setWheelScrollingEnabled(true);
+		scrollPaneSalida.setEnabled(true);
 		contentPane.add(scrollPaneSalida);
+		
+		try {
+			String[]inventario = GestorProductos.mostrarCatalogo();
+		    for(int i = 0; i < inventario.length; i++){
+		        displayStrings.append(inventario[i]+"\n");
+		    }
+		}
+		catch(Exception e) {
+			textPaneEstado.setText("Ha ocurrido un error. Imposible mostrar inventario");
+			dispose();
+		}
 		
 		JLabel lblId = new JLabel("ID"); 
 		lblId.setForeground(Color.ORANGE);
@@ -72,7 +88,7 @@ public class IUMostrarCatalogo extends JFrame{
 		buttonAceptar.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent arg0) {
-				IUOpcionesCompra compra = new IUOpcionesCompra(textPaneEstado);
+				IUOpcionesCompra compra = new IUOpcionesCompra(textPaneEstado, textFieldLog, textFieldPass, textFieldId);
 				compra.setVisible(true);
 				dispose();
 			}

@@ -10,14 +10,18 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.border.EmptyBorder;
+
+import dominio.GestorCompras;
+import dominio.GestorUsuario;
 
 public class IUOpcionesCompra extends JFrame {
 
 	private JPanel contentPane;
 
-	public IUOpcionesCompra(JTextPane textPaneEstado) {
+	public IUOpcionesCompra(JTextPane textPaneEstado, JTextField textFieldLog, JTextField textFieldPass, JTextField textFieldId) {
 		setTitle("Opción de compra");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 438, 385);
@@ -49,7 +53,17 @@ public class IUOpcionesCompra extends JFrame {
 		lblCred.setBounds(255, 230, 386, 43);
 		contentPane.add(lblCred);
 		
-		JLabel lblMCred = new JLabel("Crédito disponible: 0.00€");
+		double saldo;
+		try {
+			saldo = GestorUsuario.consultarSaldo(textFieldLog.getText(), textFieldPass.getText());
+		}
+		catch(Exception e) {
+			saldo = 0;
+			textPaneEstado.setText("Imposible obtener saldo");
+		}
+		
+		
+		JLabel lblMCred = new JLabel("Crédito disponible: "+saldo);
 		lblMCred.setForeground(Color.ORANGE);
 		lblMCred.setBounds(240, 250, 386, 43);
 		contentPane.add(lblMCred);
@@ -59,7 +73,7 @@ public class IUOpcionesCompra extends JFrame {
 		btnCatalogo.setOpaque(false);
 		btnCatalogo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				IUCompraTarjeta tarjeta = new IUCompraTarjeta(textPaneEstado);
+				IUCompraTarjeta tarjeta = new IUCompraTarjeta(textPaneEstado, textFieldLog, textFieldPass, textFieldId);
 				tarjeta.setVisible(true);
 				dispose();
 			}
@@ -72,9 +86,18 @@ public class IUOpcionesCompra extends JFrame {
 		btnInventario.setOpaque(false);
 		btnInventario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				textPaneEstado.setText("Compra mal");
-				//comprar con el credito de la tienda
-				dispose();
+				try {
+					if(GestorCompras.compraSaldo(Integer.parseInt(textFieldId.getText()),textFieldLog.getText(), textFieldPass.getText())==true) {
+						textPaneEstado.setText("Compra realizada correctamente");
+					}
+					else textPaneEstado.setText("Saldo insuficiente");
+					dispose();
+					
+				}
+				catch(Exception e) {
+					textPaneEstado.setText("Imposible realizar compra");
+					dispose();
+				}
 			}
 		});
 		btnInventario.setBounds(230, 80, 150, 150);
