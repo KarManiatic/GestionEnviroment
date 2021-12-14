@@ -15,9 +15,8 @@ public class Inventario {
 		nProductos = 0;
 		listaProductos = null;
 		this.dniUsuario = dniUsuario;
-		
 						
-		Agente.getAgente().crearTablaDatos("CREATE TABLE `gestionenviromentdb`.`inventario"+dniUsuario+"` (`id` INT NOT NULL,`tipo` VARCHAR(45) NULL,`nombre` VARCHAR(45) NULL,`nuevo` TINYINT NULL,`precio` DOUBLE NULL, PRIMARY KEY (`id`))");
+		Agente.getAgente().crearTablaDatos("CREATE TABLE IF NOT EXISTS `gestionenviromentdb`.`inventario"+dniUsuario+"` (`id` INT NOT NULL,`tipo` VARCHAR(45) NULL,`nombre` VARCHAR(45) NULL,`nuevo` TINYINT NULL,`precio` DOUBLE NULL, PRIMARY KEY (`id`))");
 	}
 
 	public int getnProductos() {
@@ -33,9 +32,9 @@ public class Inventario {
 	}
 
 	public void addProducto(Producto productoNuevo) throws Exception{
-		this.listaProductos.add(productoNuevo);
+		//this.listaProductos.add(productoNuevo);
 		this.nProductos++;
-		Agente.getAgente().insert("INSERT... ");//Meter la secuencia SQL, me da pereza ahora mismo
+		Agente.getAgente().insert("INSERT INTO `gestionenviromentdb`.`inventario"+dniUsuario+"`(`id`,`tipo`,`nombre`,`precio`,`nuevo`) VALUES ('"+productoNuevo.getId()+"','"+productoNuevo.getTipo()+"','"+productoNuevo.getNombre()+"','"+productoNuevo.getPrecio()+"','"+productoNuevo.isNuevo()+"');");
 	}
 	
 	//Este método sirve para extraer los productos del inventario, 1 a uno, sabiendo la id.
@@ -48,7 +47,7 @@ public class Inventario {
 		aux = new Vector<Object>();
 		if (vectoradevolver.size() == 1){
 			aux = (Vector<Object>) vectoradevolver.elementAt(0);
-			p = new Producto((int) aux.elementAt(0), (String) aux.elementAt(1), (String) aux.elementAt(2), (double) aux.elementAt(3), (boolean) aux.elementAt(4));
+			p = new Producto((int) aux.elementAt(0), (String) aux.elementAt(1), (String) aux.elementAt(2), (double) aux.elementAt(3), (int) aux.elementAt(4));
 		}
 		
 		return p;

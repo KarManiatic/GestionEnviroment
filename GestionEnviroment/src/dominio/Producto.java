@@ -6,10 +6,10 @@ public class Producto {
 	private String nombre;
 	private String tipo;
 	private double precio;
-	private boolean nuevo;
+	private int nuevo;
 	
 	
-	public Producto(int id, String nombre, String tipo, double precio, boolean nuevo) {
+	public Producto(int id, String nombre, String tipo, double precio, int nuevo) {
 		this.id = id;
 		this.nombre = nombre;
 		this.tipo = tipo;
@@ -58,12 +58,12 @@ public class Producto {
 	}
 
 
-	public boolean isNuevo() {
+	public int isNuevo() {
 		return nuevo;
 	}
 
 
-	public void setNuevo(boolean nuevo) {
+	public void setNuevo(int nuevo) {
 		this.nuevo = nuevo;
 	}
 	

@@ -1,7 +1,6 @@
 package dominio;
 
 import persistencia.Agente;
-import java.util.Vector;
 
 public class Principal {
 
@@ -9,7 +8,9 @@ public class Principal {
 		
 		boolean check = false;
 		long tarjeta = 0123455;
-		check = GestorUsuario.borrarCliente("KarManiatic", "12345", "06298896");
+		//GestorUsuario.nuevoCliente("Vortegag", "12345", "0629889", "V", "O", tarjeta);
+		
+		check = GestorCompras.compraSaldo(00, "Vortegag", "12345");
 		
 		if(check)
 		System.out.println("Perfe");

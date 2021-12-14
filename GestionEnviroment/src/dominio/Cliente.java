@@ -50,7 +50,7 @@ public class Cliente extends Usuario {
 		aux = new Vector<Object>();
 		if (vectoradevolver.size() == 1){
 			aux = (Vector<Object>) vectoradevolver.elementAt(0);
-			i = new Inventario ((String) aux.elementAt(3));
+			i = new Inventario ((String) aux.elementAt(2));
 			c = new Cliente((String) aux.elementAt(0), (String) aux.elementAt(1), (String) aux.elementAt(2), (String) aux.elementAt(3), (String) aux.elementAt(4), (double)aux.elementAt(5), (long) aux.elementAt(6), i);
 		}
 		
@@ -69,6 +69,12 @@ public class Cliente extends Usuario {
 		return check;
 	}
 	
+	public static int actualizarSaldo(String dni, double saldo) throws SQLException, Exception {
+		int check;
+		check = Agente.getAgente().update("UPDATE `gestionenviromentdb`.`usuarios` SET `saldo` = '"+saldo+"', WHERE `dni` = '"+dni+"';");
+		return check;
+	}
+	
 	public Producto leerProductoInventarioPersonal(int id) throws Exception {
 		return inventario.readProducto(id);
 	}
@@ -77,12 +83,13 @@ public class Cliente extends Usuario {
 		return inventario.getnProductos();
 	}
 	
-	public boolean pagoSaldo(double pago) {
+	public boolean pagoSaldo(double pago) throws SQLException, Exception {
 		boolean check = false;
 		if (saldo >= pago) {
 			saldo = saldo-pago;
 			check = true;
 		}
+		//Cliente.actualizarSaldo(dni, saldo);
 		return check;
 	}
 	

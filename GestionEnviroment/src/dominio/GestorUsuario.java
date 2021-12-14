@@ -2,7 +2,7 @@ package dominio;
 
 public class GestorUsuario { //Checked, funciona todo
 	
-	public static boolean autenticar(String login, String password) throws Exception{ //se usa en IUTienda linea 108
+	public static boolean autenticar(String login, String password) throws Exception{ //se usa en IUTienda linea 108 / Hay que eliminar la tabla del inventario cuando se elimina el cliente 
 		boolean autenticado = false;
 		if(Cliente.read(login, password) != null)
 			autenticado = true;
