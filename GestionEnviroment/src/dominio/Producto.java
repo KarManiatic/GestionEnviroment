@@ -66,5 +66,12 @@ public class Producto {
 	public void setNuevo(int nuevo) {
 		this.nuevo = nuevo;
 	}
+
+	public String toString() {
+		return "Producto [id=" + id + ", nombre=" + nombre + ", tipo=" + tipo + ", precio=" + precio + ", nuevo="
+				+ nuevo + "]";
+	}
+	
+	
 	
 }

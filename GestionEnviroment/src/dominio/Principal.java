@@ -2,18 +2,27 @@ package dominio;
 
 import persistencia.Agente;
 
+
 public class Principal {
 
 	public static void main(String [] args) throws Exception {
 		
 		boolean check = false;
 		long tarjeta = 0123455;
-		//GestorUsuario.nuevoCliente("Vortegag", "12345", "0629889", "V", "O", tarjeta);
 		
-		check = GestorCompras.compraSaldo(00, "Vortegag", "12345");
+		//check = GestorCompras.compraTarjeta(0, 0123455, "Vortegag", "12345");
 		
-		if(check)
-		System.out.println("Perfe");
+		
+		//check = GestorCompras.compraSaldo(00, "Vortegag", "12345");
+		
+		//if(check)
+		//System.out.println("Perfe");
+		
+		String [] catalogo = GestorProductos.mostrarCatalogo();
+		
+		for(int i=0; i<10; i++) {
+			System.out.println(catalogo[i]);
+		}
 		
 		/*for(int i=0; i<v.size(); i++){
             System.out.print(v.elementAt(i)+"\t");

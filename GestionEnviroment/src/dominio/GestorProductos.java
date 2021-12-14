@@ -12,11 +12,11 @@ public class GestorProductos {
 		return productos; 
 	}
 	
-	public static String[] mostrarCatalogo() throws Exception {
+	public static String[] mostrarCatalogo() throws Exception { //Cambiar los 10, actualizando el numero de productos ¡NO PRIORITARIO!
 		
-		String productos[] = new String[Catalogo.getnProductos()];
+		String productos[] = new String[10];
 		
-		for(int i=0; i < Catalogo.getnProductos(); i++) {
+		for(int i=0; i < 10; i++) {
 			productos[i] = Catalogo.readProducto(i).toString();
 		}
 		return productos; 
