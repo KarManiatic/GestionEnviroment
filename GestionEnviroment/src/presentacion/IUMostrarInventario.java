@@ -47,6 +47,11 @@ public class IUMostrarInventario extends JFrame{
 		scrollPaneSalida.setEnabled(true);
 		contentPane.add(scrollPaneSalida);
 		
+		JLabel lblFondo = new JLabel("");
+		lblFondo.setBounds(0, 0, 450, 385);
+		lblFondo.setIcon(new ImageIcon("fondo.jpg"));
+		contentPane.add(lblFondo);
+		
 		try {
 			String[]inventario = GestorProductos.mostrarInventario(login.getText(),pass.getText());
 		    for(int i = 0; i < inventario.length; i++){
@@ -57,13 +62,6 @@ public class IUMostrarInventario extends JFrame{
 			textPaneEstadoIUTienda.setText("Ha ocurrido un error. Imposible mostrar inventario");
 			dispose();
 		}
-		
-		
-		
-		JLabel lblFondo = new JLabel("");
-		lblFondo.setBounds(0, 0, 450, 385);
-		lblFondo.setIcon(new ImageIcon("fondo.jpg"));
-		contentPane.add(lblFondo);
 	}
 
 }

@@ -114,7 +114,7 @@ import persistencia.Agente;
 							textPaneEstado.setText("El login ha sido incorrecto");
 						}
 					} catch (Exception e) {
-						textPaneEstado.setText("Ha ocurrido un error, vuelva a intentarlo" + e.toString());
+						textPaneEstado.setText("Ha ocurrido un error, vuelva a intentarlo");
 					}
 
 				}
