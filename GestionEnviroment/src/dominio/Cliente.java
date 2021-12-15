@@ -65,22 +65,24 @@ public class Cliente extends Usuario {
 	
 	public static int delete(String login, String password, String dni) throws Exception {
 		int check;
-		check = Agente.getAgente().delete("DELETE FROM `gestionenviromentdb`.`usuarios` WHERE `mLogin` = '"+login+"' AND `mPassword` = '"+password+"' AND `dni` = '"+dni+"';"); 
-		return check;
-	}
-	
-	public static int actualizarSaldo(String dni, double saldo) throws SQLException, Exception {
-		int check;
-		check = Agente.getAgente().update("UPDATE `gestionenviromentdb`.`usuarios` SET `saldo` = '"+saldo+"', WHERE `dni` = '"+dni+"';");
+		check = Agente.getAgente().delete("DELETE FROM `gestionenviromentdb`.`usuarios` WHERE `mLogin` = '"+login+"' AND `mPassword` = '"+password+"' AND `dni` = '"+dni+"';");
+		if(check == 1)
+			Inventario.drop(dni);;
 		return check;
 	}
 	
 	public Producto leerProductoInventarioPersonal(int id) throws Exception {
-		return inventario.readProducto(id);
+		return inventario.readProducto(id,dni);
 	}
 
 	public int nProductosInventario() {
 		return inventario.getnProductos();
+	}
+	
+	public static int actualizarSaldo(String mLogin, double saldo) throws SQLException, Exception {
+		int check;
+		check = Agente.getAgente().update("UPDATE `gestionenviromentdb`.`usuarios` SET `saldo` = "+saldo+" WHERE `mLogin` = '"+mLogin+"';");
+		return check;
 	}
 	
 	public boolean pagoSaldo(double pago) throws SQLException, Exception {
@@ -89,7 +91,7 @@ public class Cliente extends Usuario {
 			saldo = saldo-pago;
 			check = true;
 		}
-		//Cliente.actualizarSaldo(dni, saldo);
+		Cliente.actualizarSaldo(mLogin, saldo);
 		return check;
 	}
 	

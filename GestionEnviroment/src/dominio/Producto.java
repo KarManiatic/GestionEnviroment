@@ -1,5 +1,9 @@
 package dominio;
 
+import java.util.Vector;
+
+import persistencia.Agente;
+
 public class Producto {
 	
 	private int id;
@@ -65,6 +69,22 @@ public class Producto {
 
 	public void setNuevo(int nuevo) {
 		this.nuevo = nuevo;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public static Producto read(int id, String ubi) throws Exception {
+		
+		Vector<Object> aux = null;
+		Vector<Object> vectoradevolver = Agente.getAgente().select("SELECT * FROM `"+ubi+"` WHERE `id` = '"+id+"';");  
+		Producto p = null;
+		
+		aux = new Vector<Object>();
+		if (vectoradevolver.size() == 1){
+			aux = (Vector<Object>) vectoradevolver.elementAt(0);
+			p = new Producto((int) aux.elementAt(0), (String) aux.elementAt(1), (String) aux.elementAt(2), (double) aux.elementAt(3), (int) aux.elementAt(4));
+		}
+		
+		return p;
 	}
 
 	public String toString() {

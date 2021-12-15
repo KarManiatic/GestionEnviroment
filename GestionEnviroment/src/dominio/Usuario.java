@@ -1,7 +1,5 @@
 package dominio;
 
-import java.util.Vector;
-
 public abstract class Usuario {
 	
 	protected String mLogin;

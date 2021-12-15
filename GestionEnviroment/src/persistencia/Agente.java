@@ -60,6 +60,7 @@ public class Agente {
 
 	// Metodo para realizar una eliminacion en la base de datos
 	public int delete(String SQL) throws SQLException, Exception {
+		conectar();
 		PreparedStatement stmt = mBD.prepareStatement(SQL);
 		int res = stmt.executeUpdate();
 		stmt.close();
@@ -116,4 +117,13 @@ public class Agente {
 		desconectar();
 				
 	}
+	
+	public void eliminarTablaDatos(String SQL) throws Exception {
+		conectar();
+		PreparedStatement stmt = mBD.prepareStatement(SQL);
+		stmt.executeUpdate();
+		stmt.close();
+		desconectar();
+	}
+	
 }
