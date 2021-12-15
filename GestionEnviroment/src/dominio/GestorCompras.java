@@ -1,8 +1,8 @@
 package dominio;
 
-public class GestorCompras {
+public class GestorCompras { //Totalmente funcional
 	
-	public static boolean compraSaldo(int id, String login, String password) throws Exception {
+	public static boolean compraSaldo(int id, String login, String password) throws Exception { 
 		boolean check = false;
 		Catalogo catalogo = new Catalogo(10);
 		Producto producto = Catalogo.readProducto(id);
@@ -12,15 +12,17 @@ public class GestorCompras {
 			cliente.añadirProductoInventario(producto);
 			check = true;
 		}
-		return check;
+		
+			return check;
 	}
 	
 	public static boolean compraTarjeta(int id, long numerjeta, String login, String password) throws Exception {
-		Cliente cliente = Cliente.read(login, password);
 		boolean check = false;
+		Catalogo catalogo = new Catalogo(10);
+		Cliente cliente = Cliente.read(login, password);
 		Producto producto = Catalogo.readProducto(id);
 		if(cliente.pagoTarjeta(numerjeta)){
-			Catalogo.eliminarProducto(id);
+			catalogo.eliminarProducto(id);
 			cliente.añadirProductoInventario(producto);
 			check = true;
 		}

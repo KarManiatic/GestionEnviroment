@@ -19,7 +19,8 @@ public class GestorUsuario { //Checked, funciona todo
 	
 	public static boolean borrarCliente(String login, String password, String dni) throws Exception{
 		boolean eliminado = false;
-		if(Cliente.delete(login, password, dni)==1) eliminado = true; //porque el metodo en cliente es estatico
+		if(Cliente.delete(login, password, dni)==1) 
+			eliminado = true;
 		return eliminado;
 	}
 	
