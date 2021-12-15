@@ -9,7 +9,6 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 import dominio.GestorUsuario;
-import persistencia.Agente;
 
 	public class IUTienda extends JFrame {
 

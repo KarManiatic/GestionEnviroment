@@ -50,7 +50,7 @@ public class IUPreguntaSeguridad extends JFrame{
 				}
 				catch(Exception e) {
 					dispose();
-					textPane.setText("Error, no se ha podido borrar la cuenta. Tal vez no exista");
+					textPane.setText("Error, no se ha podido borrar la cuenta");
 				}
 				
 			}

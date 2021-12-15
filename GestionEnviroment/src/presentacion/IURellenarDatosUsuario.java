@@ -125,16 +125,16 @@ public class IURellenarDatosUsuario extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
 					if (GestorUsuario.nuevoCliente(textFieldLogin.getText(), textFieldPass.getText(), textFieldDni.getText(), textFieldNombre.getText(), textFieldApellido.getText(), Long.parseLong(textFieldTarjeta.getText())) == true) {
-						textPaneEstado.setText("Usuario creado correctamente. Puede cerrar esta ventana");
+						textPaneEstado.setText("Usuario creado correctamente. Puede cerrar esta ventana.");
 						dispose();
 					}
 					else {
-						textPaneEstado.setText("No se ha podido insertar el usuario");
+						textPaneEstado.setText("No se ha podido insertar el usuario.");
 						dispose();
 					}
 
 				} catch (Exception e) {
-					textPaneEstado.setText("No se ha podido crear  el usuario.¿Tal vez ya existe?");
+					textPaneEstado.setText("No se ha podido crear  el usuario.");
 					dispose();
 				}
 
