@@ -13,7 +13,7 @@ public class IUPreguntaSeguridad extends JFrame{
 	
 	private JPanel contentPane;
 
-	public IUPreguntaSeguridad(JTextPane textPane, JTextField textFieldPassword, JTextField textFieldLogin, JTextField textFieldDni) {
+	public IUPreguntaSeguridad(JTextPane textPane, JTextField textFieldLogin,JTextField textFieldPassword, JTextField textFieldDni) {
 		setTitle("¿Seguro de lo que quieres hacer?");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 420, 285);
