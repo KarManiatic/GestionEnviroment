@@ -4,9 +4,9 @@ public class GestorProductos {
 
 	public static String[] mostrarInventario(String login, String password) throws Exception {
 		Cliente cliente = Cliente.read(login, password);
-		String productos[] = new String[cliente.nProductosInventario()];
+		String productos[] = new String[2];
 		
-		for(int i=0; i < cliente.nProductosInventario(); i++) {
+		for(int i=0; i < 2; i++) {
 			productos[i] = cliente.leerProductoInventarioPersonal(i).toString();
 		}
 		return productos; 

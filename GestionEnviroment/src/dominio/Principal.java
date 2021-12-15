@@ -14,12 +14,14 @@ public class Principal {
 		
 		//GestorUsuario.nuevoCliente("Jime", "puto", "01234567", "C", "R", tarjeta);
 		
-		check = GestorCompras.compraSaldo(00, "Jime", "puto");
+		//check = GestorCompras.compraSaldo(00, "Jime", "puto");
+		
+		
 		
 		if(check)
 		System.out.println("Perfe");
 		
-		String [] catalogo = GestorProductos.mostrarCatalogo();
+		String [] catalogo = GestorProductos.mostrarInventario("Carlos", "1");
 		
 		for(int i=0; i<10; i++) {
 			System.out.println(catalogo[i]);
