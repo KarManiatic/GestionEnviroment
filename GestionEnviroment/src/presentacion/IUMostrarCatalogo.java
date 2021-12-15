@@ -18,6 +18,7 @@ import java.awt.Color;
 import javax.swing.JTextPane;
 
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class IUMostrarCatalogo extends JFrame{
@@ -55,13 +56,13 @@ public class IUMostrarCatalogo extends JFrame{
 		contentPane.add(scrollPaneSalida);
 		
 		try {
-			String[]inventario = GestorProductos.mostrarCatalogo();
-		    for(int i = 0; i < inventario.length; i++){
-		        displayStrings.append(inventario[i]+"\n");
+			ArrayList catalogo = GestorProductos.mostrarCatalogo();
+		    for(int i = 0; i < catalogo.size(); i++){
+		        displayStrings.append(catalogo.get(i)+"\n");
 		    }
 		}
 		catch(Exception e) {
-			textPaneEstado.setText("Ha ocurrido un error. Imposible mostrar inventario");
+			textPaneEstado.setText("Ha ocurrido un error. Imposible mostrar inventario"+e);
 			dispose();
 		}
 		

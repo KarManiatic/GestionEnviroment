@@ -101,7 +101,7 @@ public class Cliente extends Usuario {
 	}
 	
 	public void añadirProductoInventario(Producto producto) throws Exception  {
-		inventario.addProducto(producto);	
+		inventario.insertProducto(producto);	
 	}
 
 	public String toString() {

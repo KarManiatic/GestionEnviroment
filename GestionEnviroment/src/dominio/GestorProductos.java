@@ -1,23 +1,32 @@
 package dominio;
 
+import java.util.ArrayList; 
+
 public class GestorProductos {
 
-	public static String[] mostrarInventario(String login, String password) throws Exception {
+	@SuppressWarnings("rawtypes")
+	public static ArrayList mostrarInventario(String login, String password) throws Exception { //Meter en interfaz de constantes este valor
 		Cliente cliente = Cliente.read(login, password);
-		String productos[] = new String[2];
-		
-		for(int i=0; i < 2; i++) {
-			productos[i] = cliente.leerProductoInventarioPersonal(i).toString();
+		ArrayList productos = new ArrayList();
+		int i = 0;
+		while (i < 10) {
+			if(cliente.leerProductoInventarioPersonal(i)!=null) {
+			productos.add(cliente.leerProductoInventarioPersonal(i).toString());
+			}
+			i++;
 		}
 		return productos; 
 	}
 	
-	public static String[] mostrarCatalogo() throws Exception { //Cambiar los 10, actualizando el numero de productos ¡NO PRIORITARIO!
-		
-		String productos[] = new String[10];
-		
-		for(int i=0; i < 10; i++) {
-			productos[i] = Catalogo.readProducto(i).toString();
+	@SuppressWarnings("rawtypes")
+	public static ArrayList mostrarCatalogo() throws Exception { //Cambiar los 10, actualizando el numero de productos ¡NO PRIORITARIO!
+		ArrayList productos = new ArrayList();
+		int i = 0;
+		while (i < 10) {
+			if(Catalogo.readProducto(i) != null) {
+			productos.add(Catalogo.readProducto(i).toString());
+			}
+		i++;
 		}
 		return productos; 
 	}
