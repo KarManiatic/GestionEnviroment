@@ -13,12 +13,14 @@ import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.border.EmptyBorder;
 
+import dominio.GestorCompras;
+
 public class IUCompraTarjeta extends JFrame{
 	
 	private JPanel contentPane;
 	private JTextField textFieldTarj;
 	
-	public IUCompraTarjeta(JTextPane textPaneEstado) {
+	public IUCompraTarjeta(JTextPane textPaneEstado, JTextField textFieldLog, JTextField textFieldPass, JTextField textFieldId) {
 		setTitle("Pago Tarjeta");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 438, 385);
@@ -64,9 +66,18 @@ public class IUCompraTarjeta extends JFrame{
 		buttonAceptar.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent arg0) {
-				textPaneEstado.setText("Compra mal");
-				//Aqui deberia hacer la compra con tarjeta que devuelva un boolean
-				dispose();
+				try {
+					if(GestorCompras.compraTarjeta(Integer.parseInt(textFieldId.getText()), Long.parseLong(textFieldTarj.getText()),textFieldLog.getText(), textFieldPass.getText())==true) {
+						textPaneEstado.setText("Compra realizada correctamente");
+					}
+					else textPaneEstado.setText("Tarjeta de crédito no coincide con la asociada");
+					dispose();
+					
+				}
+				catch(Exception e) {
+					textPaneEstado.setText("Imposible realizar compra");
+					dispose();
+				}
 			}
 		});
 		buttonAceptar.setBounds(290, 150, 153, 29);
