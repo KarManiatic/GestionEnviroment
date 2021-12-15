@@ -2,6 +2,7 @@ package dominio;
 
 import persistencia.Agente;
 
+import java.util.ArrayList;
 
 public class Principal {
 
@@ -16,16 +17,18 @@ public class Principal {
 		
 		//check = GestorCompras.compraSaldo(00, "Jime", "puto");
 		
-		
+		Cliente cliente = Cliente.read("Carlos", "1");
+		System.out.println(cliente.leerProductoInventarioPersonal(2).toString());
 		
 		if(check)
 		System.out.println("Perfe");
 		
-		String [] catalogo = GestorProductos.mostrarInventario("Carlos", "1");
+	
+		ArrayList inventario = GestorProductos.mostrarInventario("Carlos","1");
+		for(int i = 0; i < inventario.size(); i++)  
+		   	System.out.println(inventario.get(i));
+		   
 		
-		for(int i=0; i<10; i++) {
-			System.out.println(catalogo[i]);
-		}
 		
 		/*for(int i=0; i<v.size(); i++){
             System.out.print(v.elementAt(i)+"\t");

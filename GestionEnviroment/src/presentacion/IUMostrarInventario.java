@@ -1,6 +1,7 @@
 package presentacion;
 
 import java.awt.Color;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -48,13 +49,13 @@ public class IUMostrarInventario extends JFrame{
 		contentPane.add(scrollPaneSalida);
 		
 		try {
-			String[]inventario = GestorProductos.mostrarInventario(login.getText(),pass.getText());
-		    for(int i = 0; i < inventario.length; i++){
-		        displayStrings.append(inventario[i]+"\n");
+			ArrayList inventario = GestorProductos.mostrarInventario(login.getText(),pass.getText());
+		    for(int i = 0; i < inventario.size(); i++){
+		        displayStrings.append(inventario.get(i)+"\n");
 		    }
 		}
 		catch(Exception e) {
-			textPaneEstadoIUTienda.setText("Ha ocurrido un error. Imposible mostrar inventario");
+			textPaneEstadoIUTienda.setText("Ha ocurrido un error. Imposible mostrar inventario"+e);
 			dispose();
 		}
 		
