@@ -8,8 +8,8 @@ public class Catalogo {
 	
 	private int nProductos;
 	
-	public Catalogo(int nProductos) throws Exception  {
-		nProductos = 0;
+	public Catalogo() throws Exception  {
+		nProductos = 16;
 	}
 
 	public  int getnProductos() {
